@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: URL('../../../assets/fonts/Roboto-Regular.woff2') format('woff2'),
+		URL('../../../assets/fonts/Roboto-Regular.woff') format('woff'),
+		URL('../../../assets/fonts/Roboto-Regular.ttf') format('ttf');
+}
+
+@font-face {
+	font-family: 'Roboto-Bold';
+	src: URL('../../../assets/fonts/Roboto-Bold.woff2') format('woff2'),
+		URL('../../../assets/fonts/Roboto-Bold.woff') format('woff'), URL('../../../assets/fonts/Roboto-Bold.ttf') format('ttf');
+}
+
+@font-face {
+	font-family: 'Roboto-Mono';
+	src: URL('../../../assets/fonts/Roboto-Mono.woff2') format('woff2'),
+		URL('../../../assets/fonts/Roboto-Mono.woff') format('woff'),
+		URL('../../../assets/fonts/Roboto-Mono.ttf') format('ttf');
+}
