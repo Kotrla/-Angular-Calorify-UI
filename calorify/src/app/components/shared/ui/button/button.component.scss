@@ -10,8 +10,13 @@ button {
     border-radius: 3px;
     border: 1px solid $darker-gray;
 
-    &:hover {
-        filter: brightness(80%);
+    &:not([disabled]):hover {
+        filter: brightness(70%);
         transition: $filter-animation;
+    }
+
+    &:disabled{
+        opacity: 0.4;
+        cursor: default;
     }
 }

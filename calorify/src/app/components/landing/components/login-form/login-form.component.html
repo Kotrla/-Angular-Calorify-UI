@@ -1,7 +1,7 @@
-<div class="form" form="loginForm">
-    <app-input [inputLabel]="'Email'" [inputPlaceholder]="'Enter your email'" [passedFormControl]="emailFormControl"></app-input>
+<div class="form" [formGroup]="loginForm">
+    <app-input [inputLabel]="'Email'" [inputPlaceholder]="'Enter your email'" [passedFormControl]="getEmailControl"></app-input>
 
-    <app-input [inputLabel]="'Password'" [inputPlaceholder]="'Enter your password'" [inputType]="'password'" [passedFormControl]="passwordFormControl"></app-input>
+    <app-input [inputLabel]="'Password'" [inputPlaceholder]="'Enter your password'" [inputType]="'password'" [passedFormControl]="getPasswordControl"></app-input>
 
-    <app-button [buttonText]="'Log in'"></app-button>
+    <app-button [buttonText]="'Log in'" (buttonClickEvent)="onLogin()" [isDisabled]="!(isFormChanged && isFormStatusValid)"></app-button>
 </div>
