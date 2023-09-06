@@ -1,5 +1,7 @@
 <div class="header">
-    <div class="logo">logo</div>
+    <div class="logo">
+        <img src="../../../assets/calorify-logo-white.png" alt="logo">
+    </div>
 </div>
 
 <div class="container">
@@ -7,13 +9,28 @@
         <div class="landing-text">
             <h1>Welcome to Calorify!</h1>
 
-            <P>Looking to take control of your diet and fitness goals?</P>
-            <P>Look no further than Calorify, the cutting-edge web application designed to help you track your calories, workouts, and macronutrients.</P>
-            <P>With Calorify, you'll have all the tools you need to achieve your health goals and live your best life!</P>
+            <p>Looking to take control of your diet and fitness goals?</p>
+            <p>Look no further than Calorify, the cutting-edge web application designed to help you track your calories, workouts, and macronutrients.</p>
+            <p>With Calorify, you'll have all the tools you need to achieve your health goals and live your best life!</p>
+       
+            <img class="foods-image" src="../../../assets/images/food-weights.png" alt="fruits"/>
         </div>
 
-        <div class="form">
-            <app-login-form></app-login-form>
+        <div class="card">
+            <div class="controls">
+                <div class="card control" [ngClass]="{'control-selected': formMode === getFormMode.LOGIN}" (click)="setFormMode(getFormMode.LOGIN)">Login</div>
+                <div class="card control" [ngClass]="{'control-selected': formMode === getFormMode.REGISTER}" (click)="setFormMode(getFormMode.REGISTER)">Register</div>
+            </div>
+
+            <div class="form">
+                <ng-container *ngIf="formMode === getFormMode.LOGIN else registerTemplate">
+                    <app-login-form></app-login-form>
+                </ng-container>
+
+                <ng-template #registerTemplate>
+                    <app-register-form></app-register-form>
+                </ng-template>
+            </div>
         </div>
     </div>
 </div>

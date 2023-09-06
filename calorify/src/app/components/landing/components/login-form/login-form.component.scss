@@ -1,6 +1,15 @@
-@import '../../../../styles/partials/card';
+@import '../../../../styles/partials/variables';
 
-.card {
-    min-height: 500px;
-    width: 400px;
+:host {
+    width: 90%;
+}
+
+.form {
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    
+    * {
+        margin-bottom: $gap;
+    }
 }

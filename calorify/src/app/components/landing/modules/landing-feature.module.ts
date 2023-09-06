@@ -4,9 +4,9 @@ import { landingRoutes } from '../utils/landing.routes';
 import { LandingFeatureWithoutRoutingModule } from './landing-feature-without-routing.module';
 
 @NgModule({
-  imports: [
-    LandingFeatureWithoutRoutingModule,
-    RouterModule.forChild(landingRoutes)
-  ]
+    imports: [
+        LandingFeatureWithoutRoutingModule,
+        RouterModule.forChild(landingRoutes)
+    ]
 })
 export class LandingFeatureModule { }

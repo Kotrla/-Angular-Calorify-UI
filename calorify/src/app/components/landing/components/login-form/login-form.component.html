@@ -1,1 +1,7 @@
-<div class="card"></div>
+<div class="form" form="loginForm">
+    <app-input [inputLabel]="'Email'" [inputPlaceholder]="'Enter your email'" [passedFormControl]="emailFormControl"></app-input>
+
+    <app-input [inputLabel]="'Password'" [inputPlaceholder]="'Enter your password'" [inputType]="'password'" [passedFormControl]="passwordFormControl"></app-input>
+
+    <app-button [buttonText]="'Log in'"></app-button>
+</div>

@@ -1,0 +1,7 @@
+<div class="input" [ngStyle]="{'width': inputWidth || ''}">
+    <div class="input__label" *ngIf="showLabel">
+        {{inputLabel}}:
+    </div>
+
+    <input [type]="inputType" [placeholder]="inputPlaceholder" [formControl]="$any(passedFormControl)">
+</div>
