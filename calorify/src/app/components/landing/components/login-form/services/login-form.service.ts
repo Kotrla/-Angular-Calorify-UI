@@ -13,7 +13,7 @@ export class LoginFormService {
     buildForm(): FormGroup {
         return this.formBuilder.group({
             email: ['', [Validators.maxLength(25), Validators.email, Validators.required]],
-            password: ['', [Validators.maxLength(15), Validators.minLength(5), Validators.required]]
+            password: ['', [Validators.maxLength(15), Validators.minLength(3), Validators.required]]
         })
     }
 }

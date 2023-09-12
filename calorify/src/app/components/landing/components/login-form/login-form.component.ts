@@ -1,11 +1,12 @@
-import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UtilService } from 'src/app/services/util.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { ILoginForm } from '../../ts/models/login-form.model';
 import { LoginFormService } from './services/login-form.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AngularFormStatus } from 'src/app/ts/enums/angular-form-status';
-import { UtilService } from 'src/app/services/util.service';
 
 @UntilDestroy()
 @Component({
@@ -21,7 +22,9 @@ export class LoginFormComponent implements OnInit {
     isFormStatusValid: boolean;
 
     constructor(
+        private router: Router,
         private utilService: UtilService,
+        private authService: AuthService,
         private loginFormService: LoginFormService
     ) { }
 
@@ -38,12 +41,15 @@ export class LoginFormComponent implements OnInit {
             .subscribe(formValues => {
                 this.isFormChanged = this.utilService.areFormsChanged(this.initialFormValues, formValues);
                 this.isFormStatusValid = this.loginForm.status === AngularFormStatus.VALID;
-                console.log(this.isFormChanged, this.isFormStatusValid);
             });
     }
 
     onLogin(): void {
-        console.log('log in...');
+        const { email, password } = this.loginForm.value;
+        
+        this.authService.login(email, password)
+            .pipe(untilDestroyed(this))
+            .subscribe(login => !!login ? this.router.navigate(['/home']) : '');
     }
 
     public get getEmailControl(): FormControl {
