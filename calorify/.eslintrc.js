@@ -36,7 +36,7 @@ module.exports = {
             "style": "kebab-case"
           }
         ],
-        "max-len": ["error", { "code": 140, "comments": 160, "ignoreRegExpLiterals": true }],
+        "max-len": ["error", { "code": 160, "comments": 170, "ignoreRegExpLiterals": true }],
         "indent": ["error", 4],
         "no-console": "off",
         "import/order": "off",

@@ -1,0 +1,23 @@
+@mixin gradientAnimation( $start, $end, $transTime ){
+    background-size: 100%;
+    background-image: none;
+    position: relative;
+    z-index: 100;
+    &:before {
+        background-image: radial-gradient($start 0%, $end 100%);
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -100;
+        transition: opacity $transTime;
+    }
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+}

@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
-import { AuthGuard } from '../services/auth.guard';
+import { RoutesEnum } from '../ts/enums/routes.enum';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../services/guards/auth.guard';
 
 const routes: Routes = [
     {
-        path: '', loadChildren: () => import('../components/landing/modules/landing-feature.module').then(m => m.LandingFeatureModule),
-        pathMatch: 'full'
+        path: RoutesEnum.LOGIN, loadChildren: () => import('../components/landing/modules/landing-feature.module')
+            .then(m => m.LandingFeatureModule), pathMatch: 'full'
     },
     {
-        path: 'home', loadChildren: () => import('../components/home/modules/home-feature.module').then(m => m.HomeFeatureModule),
-        canActivate: [ AuthGuard ]
+        path: RoutesEnum.DASHBOARD, loadChildren: () => import('../components/dashboard/modules/dashboard-feature.module')
+            .then(m => m.DashboardFeatureModule), canActivate: [ AuthGuard ]
     },
 ];
 

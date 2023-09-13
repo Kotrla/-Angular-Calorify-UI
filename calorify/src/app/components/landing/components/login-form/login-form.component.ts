@@ -1,12 +1,13 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { RoutesEnum } from 'src/app/ts/enums/routes.enum';
 import { UtilService } from 'src/app/services/util.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ILoginForm } from '../../ts/models/login-form.model';
 import { LoginFormService } from './services/login-form.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { AngularFormStatus } from 'src/app/ts/enums/angular-form-status';
+import { AngularFormStatus } from 'src/app/ts/enums/angular-form-status.enum';
 
 @UntilDestroy()
 @Component({
@@ -49,7 +50,7 @@ export class LoginFormComponent implements OnInit {
         
         this.authService.login(email, password)
             .pipe(untilDestroyed(this))
-            .subscribe(login => !!login ? this.router.navigate(['/home']) : '');
+            .subscribe(login => !!login ? this.router.navigate([`/${ RoutesEnum.DASHBOARD }/${ RoutesEnum.HOME }`]) : '');
     }
 
     public get getEmailControl(): FormControl {

@@ -1,4 +1,5 @@
-$blue: #23CE6B;
+$green: #23CE6B;
+$accent-blue: #474677;
 $dark-blue: #1a1140;
 $dark-dark-blue: #080127;
 $light-blue: #c1f8fd;
@@ -6,9 +7,10 @@ $light-gray: #f1f1f1;
 $light-light-gray: #f8f8f8;
 $darker-gray: #d4d4d4;
 $pale-blue: #cae1e3;
-$pinkL: #EF476F;
+$pink: #EF476F;
 
 $gap: 16px;
 $section-gap: 24px;
 
+$filter-white: brightness(0) invert(1);
 $filter-animation: filter 0.3s ease-in-out;

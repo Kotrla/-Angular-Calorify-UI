@@ -1,0 +1,73 @@
+@import '../../../../styles/partials/variables';
+@import '../../../../styles/partials/mixins';
+
+.sidebar {
+    width: 230px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $dark-blue;
+    box-shadow: 5px 1px 44px 0px rgba(0,0,0,0.22);
+
+    &-item {
+        width: 100%;
+        min-height: 60px;
+        cursor: pointer;
+        box-sizing: border-box;
+        border-top: 1px solid $accent-blue;
+        border-bottom: 1px solid $accent-blue;
+        @include gradientAnimation(rgb(117, 116, 146), rgba(255,255,255,0), 0.6s);
+
+        &-selected {
+            cursor: default;
+            width: 100%;
+            min-height: 60px;
+            box-sizing: border-box;
+            border-right: 8px solid $green;
+            border-top: 1px solid $accent-blue;
+            border-bottom: 1px solid $accent-blue;
+            background: radial-gradient(rgb(117, 116, 146) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        &-content {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: 0 auto 0 auto;
+
+            img {
+                width: 20px;
+                height: auto;
+                filter: $filter-white;
+            }
+
+            p {
+                font-size: 18px;
+                margin-left: 12px;
+                color: white;
+            }
+        }
+    }
+}
+
+.container, .main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+}
+
+.container {
+    justify-content: space-between;
+}
+
+.logo {
+    margin-bottom: 50px;
+
+    img {
+        width: 90px;
+        height: auto;
+    }
+}
