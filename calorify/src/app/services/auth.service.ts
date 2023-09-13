@@ -16,11 +16,11 @@ const httpOptions = {
 export class AuthService {
 
     constructor(
-    private router: Router,
-    private http: HttpClient
+        private router: Router,
+        private http: HttpClient
     ) { }
 
-    login(email: string, password: string): Observable<any> {
+    login(email: string, password: string): Observable<string> {
         return this.http.post<any>(AUTH_API + '/users/login', { email, password }, httpOptions)
             .pipe(
                 map((res: any) => {
@@ -39,7 +39,7 @@ export class AuthService {
         const removeToken = localStorage.removeItem('access_token');
     
         if (removeToken == null) {
-            this.router.navigate(['/users/login']);
+            this.router.navigate(['/']);
         }
     }
 

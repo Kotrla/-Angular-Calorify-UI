@@ -1,3 +1,3 @@
-<button [disabled]="isDisabled" [ngStyle]="{'background-color': buttonColor || ''}" (click)="onButtonClick()">
+<button [disabled]="isDisabled" [ngStyle]="{'background-color': buttonColor || '', 'width': width || '', 'border': '1px solid ' + borderColor || '$darker-gray'}" (click)="onButtonClick()">
     {{ buttonText }}
 </button>

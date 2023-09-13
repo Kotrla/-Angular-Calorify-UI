@@ -49,7 +49,7 @@ export class LoginFormComponent implements OnInit {
         
         this.authService.login(email, password)
             .pipe(untilDestroyed(this))
-            .subscribe(login => !!login ? this.router.navigate(['/home']) : '');
+            .subscribe(login => !!login ? this.router.navigate(['/v1']) : '');
     }
 
     public get getEmailControl(): FormControl {
