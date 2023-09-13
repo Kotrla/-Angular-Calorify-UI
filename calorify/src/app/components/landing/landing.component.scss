@@ -8,14 +8,14 @@
     background-color: $dark-blue;
     display: flex;
     align-items: center;
-}
 
-.logo {
-    margin-left: 32px;
+    .logo {
+        margin-left: 32px;
 
-    img {
-        width: 90px;
-        height: auto;
+        img {
+            width: 90px;
+            height: auto;
+        }
     }
 }
 
@@ -25,79 +25,79 @@
     display: flex;
     justify-content: center;
     background: linear-gradient(235deg, rgba(233,233,233,1) 0%, rgba(255,255,255,1) 100%);
-}
 
-.content {
-    width: 90%;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    div {
-        width: 50%;
+    .content {
+        width: 90%;
         min-height: 100%;
-    }
-}
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
 
-.landing-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+        div {
+            width: 50%;
+            min-height: 100%;
+        }
 
-    * {
-        margin-bottom: $gap; 
-        text-align: center;
-        color: $dark-dark-blue;
-    }
-}
+        .landing-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
 
-.foods-image {
-    height: auto;
-    width: 600px;
-}
+            * {
+               margin-bottom: $gap; 
+               text-align: center;
+               color: $dark-dark-blue;
+            }
 
-.card {
-    width: 400px;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
+            .foods-image {
+                height: auto;
+                width: 600px;
+            }
+        }
 
-.controls {
-    width: 100%;
-    display: flex;
-    margin-bottom: $section-gap;
-}
+        .card {
+            width: 400px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
 
-.control {
-    cursor: pointer;
-    min-height: 60px;
-    justify-content: center;
+        .controls {
+            width: 100%;
+            display: flex;
+            margin-bottom: $section-gap;
+        }
 
-    &:hover {
-        filter: brightness(90%);
-        transition: $filter-animation;
-    }
+        .control {
+            cursor: pointer;
+            min-height: 60px;
+            justify-content: center;
 
-    &-selected {
-        color: white;
-        cursor:default;
-        background-color: $green;
-        
-        &:hover {
-            filter: none;
+            &:hover {
+                filter: brightness(90%);
+                transition: $filter-animation;
+            }
+
+            &-selected {
+                color: white;
+                cursor:default;
+                background-color: $green;
+                
+                &:hover {
+                    filter: none;
+                }
+            }
+        }
+
+        .form {
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
     }
-}
-
-.form {
-    width: 100%;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
