@@ -5,7 +5,7 @@ import { RoutesEnum } from 'src/app/ts/enums/routes.enum';
 import { UtilService } from 'src/app/services/util.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ILoginForm } from '../../ts/models/login-form.model';
-import { LoginFormService } from './services/login-form.service';
+import { LoginFormService } from '../../services/login-form.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AngularFormStatus } from 'src/app/ts/enums/angular-form-status.enum';
 

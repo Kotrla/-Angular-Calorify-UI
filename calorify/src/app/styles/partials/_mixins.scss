@@ -3,6 +3,7 @@
     background-image: none;
     position: relative;
     z-index: 100;
+
     &:before {
         background-image: radial-gradient($start 0%, $end 100%);
         content: "";
@@ -15,6 +16,7 @@
         z-index: -100;
         transition: opacity $transTime;
     }
+    
     &:hover {
         &:before {
             opacity: 1;

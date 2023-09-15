@@ -1,0 +1,24 @@
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+:host {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 95%;
+    height: 90vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    
+    * {
+        margin-bottom: $section-gap;
+    }
+}
