@@ -1,6 +1,6 @@
 @import './variables';
 
 .card {
+    box-shadow: $box-shadow;
     background-color: $light-gray;
-    box-shadow: 1px 0px 5px rgb(197, 197, 197);
 }
