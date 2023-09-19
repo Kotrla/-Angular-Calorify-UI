@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../state/state';
 import { RoutesEnum } from '../ts/enums/routes.enum';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../services/guards/auth.guard';
+import { HomeEffects } from '../components/home/ngrx/home.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 const routes: Routes = [
     {
@@ -15,7 +19,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        RouterModule.forRoot(routes),
+        StoreModule.forRoot(reducers),
+        EffectsModule.forRoot([HomeEffects])
+    ],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

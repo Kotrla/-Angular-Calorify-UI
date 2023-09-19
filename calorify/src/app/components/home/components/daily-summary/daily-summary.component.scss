@@ -2,7 +2,6 @@
 @import '../../../../styles/partials/variables';
 
 .card {
-    min-height: 300px;
 
     &__header {
         height: 40px;
@@ -19,6 +18,22 @@
 
     &__content {
         margin: $gap;
-        background-color: red;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &--item {
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: $gap;
+
+            &-macros {
+                width: 100px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
     }
 }

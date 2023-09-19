@@ -1,9 +1,17 @@
 <div class="container">
     <div class="content">
-        <p>Welcome {{ userName }}, here is an overview of your profile</p>
+        <ng-container *ngIf="isLoading$ | async else homeContent">
+            Loading..
+        </ng-container>
 
-        <app-daily-summary></app-daily-summary>
+        <ng-template #homeContent>
+            <ng-container *ngIf="userDetails$ | async as userDetails">
+                <p>Welcome {{ userDetails.personal.firstName }}, here is an overview of your profile</p>
 
-        <app-weekly-summary></app-weekly-summary>
+                <app-daily-summary [userDetails]="userDetails" [userDaily]="userDaily$ | async"></app-daily-summary>
+
+                <app-weekly-summary [userTargets]="userTargets$ | async"></app-weekly-summary>
+            </ng-container>
+        </ng-template>
     </div>
 </div>
