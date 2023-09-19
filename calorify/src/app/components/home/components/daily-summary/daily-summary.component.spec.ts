@@ -3,21 +3,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DailySummaryComponent } from './daily-summary.component';
 
 describe('DailySummaryComponent', () => {
-  let component: DailySummaryComponent;
-  let fixture: ComponentFixture<DailySummaryComponent>;
+    let component: DailySummaryComponent;
+    let fixture: ComponentFixture<DailySummaryComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ DailySummaryComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ DailySummaryComponent ]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(DailySummaryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(DailySummaryComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
