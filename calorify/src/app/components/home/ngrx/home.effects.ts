@@ -9,8 +9,8 @@ import * as homeActions from './home.actions';
 export class HomeEffects {
 
     constructor(
-    private actions$: Actions,
-    private homeHttpService: HomeHttpService
+        private actions$: Actions,
+        private homeHttpService: HomeHttpService
     ) { }
   
     loadUserDetails$ = createEffect(() => this.actions$.pipe(

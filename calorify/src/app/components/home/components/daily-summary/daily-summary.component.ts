@@ -21,7 +21,6 @@ export class DailySummaryComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-      console.log(this.userDetails, this.userDaily);
       if (changes['userDetails']?.currentValue !== changes['userDetails']?.previousValue) {
           this.userTargets = this.userDetails?.needs as IUserNeeds;
       }

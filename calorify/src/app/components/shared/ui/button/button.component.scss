@@ -8,7 +8,10 @@ button {
     background-color: $green;
     box-sizing: border-box;
     border-radius: 3px;
-    border: 1px solid $darker-gray;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:not([disabled]):hover {
         filter: brightness(70%);

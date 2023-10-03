@@ -1,3 +1,7 @@
-<button [disabled]="isDisabled" [ngStyle]="{'background-color': buttonColor || '', 'width': width || '', 'border': '1px solid ' + borderColor || '$darker-gray'}" (click)="onButtonClick()">
+<button [disabled]="isDisabled" 
+    [ngStyle]="{'background-color': buttonColor || '', 'width': width || '', 
+    'height': height || '', 'border': '1px solid ' + borderColor || buttonColor }" 
+    (click)="onButtonClick()">
     {{ buttonText }}
+    <img [src]="imageSource" [style]="{ height: imageHeight, width: imageWidth }"/>
 </button>

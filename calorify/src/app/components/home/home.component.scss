@@ -9,16 +9,16 @@
     justify-content: center;
 }
 
-.container {
+.container-app {
     width: 95%;
     height: 90vh;
 }
 
-.content {
+.content-app {
     display: flex;
     flex-direction: column;
     
-    * {
+    > * {
         margin-bottom: $section-gap;
     }
 }

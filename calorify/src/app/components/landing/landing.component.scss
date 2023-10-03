@@ -19,14 +19,14 @@
     }
 }
 
-.container {
+.container-app {
     width: 100%;
     min-height: calc(100vh - 70px);
     display: flex;
     justify-content: center;
     background: linear-gradient(235deg, rgba(233,233,233,1) 0%, rgba(255,255,255,1) 100%);
 
-    .content {
+    .content-app {
         width: 90%;
         min-height: 100%;
         display: flex;

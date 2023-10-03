@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
         { name: SidebarItem.PROFILE, image: '../../../assets/images/profile.png' },
     ]
 
-    selectedSidebarItem: SidebarItem = SidebarItem.HOME;
+    selectedSidebarItem: SidebarItem;
 
     constructor(
       private router: Router,
@@ -31,6 +31,8 @@ export class SidebarComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        this.selectedSidebarItem = this.getSidebarItemFromUrl(this.router.url);
+
         this.watchRouteChanges();
     }
 

@@ -1,0 +1,33 @@
+@import '../../../../styles/partials/variables';
+
+.container-app {
+    height: 60px;
+    min-width: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $light-gray;
+    border-radius: 8px;
+    border: 1px solid darken($light-gray, 15%);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+}
+
+.content-app {
+    width: 98%;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &--macros {
+        width: 20%;
+        font-size: small;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="select" [ngStyle]="{'margin-bottom': bottomSpace ? '16px' : '0px' }">
+    <div class="select__label" *ngIf="!!selectLabel">
+        {{selectLabel}}:
+    </div>
+
+    <select [formControl]="$any(passedFormControl)" [attr.name]="selectName" [ngStyle]="{'width': selectWidth || ''}">
+        <option *ngFor="let selectItem of selectData" [value]="selectItem.value">
+            {{ selectItem.uiValue }}
+        </option>
+    </select>
+</div>

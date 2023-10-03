@@ -10,13 +10,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
 
-  @Input() width: string;
-  @Input() height: string;
-  @Input() textColor: string;
-  @Input() buttonColor: string;
-  @Input() buttonText: string;
-  @Input() borderColor: string;
-  @Input() isDisabled: boolean | null;
+  @Input() width?: string;
+  @Input() height?: string;
+  @Input() textColor?: string;
+  @Input() buttonColor?: string;
+  @Input() buttonText?: string;
+  @Input() borderColor?: string;
+  @Input() isDisabled?: boolean | null;
+  @Input() imageSource?: string;
+  @Input() imageHeight?: string;
+  @Input() imageWidth?: string;
 
   @Output() buttonClickEvent = new EventEmitter();
 
