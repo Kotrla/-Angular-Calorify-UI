@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { IUser } from '../ts/models/user.model';
 import { IUserResponse } from '../ts/models/user-response.model';
-import { IUserTargetsResponse } from '../ts/models/targets-response.model';
 import { IDailyResponse } from '../ts/models/daily-response.model';
+import { IUserTargetsResponse } from '../ts/models/targets-response.model';
 
 const API = environment.api;
 
@@ -15,7 +14,7 @@ const API = environment.api;
 export class HomeHttpService {
 
     constructor(
-    private http: HttpClient
+        private http: HttpClient
     ) { }
 
     getUserDetails(): Observable<IUserResponse> {

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
 import { Injectable } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import { IAppState } from 'src/app/state/state';
 import { HomeStoreKey } from '../ts/enums/home-store-key.enum';
 
@@ -13,7 +13,7 @@ import * as homeActions from '../ngrx/home.actions';
 export class HomeNgrxService {
 
     constructor(
-    private store: Store<IAppState>
+        private store: Store<IAppState>
     ) { }
 
     selectFromHomeNgrxStore<T>(selector: HomeStoreKey): Observable<T> {

@@ -1,8 +1,8 @@
-import { Action, createReducer, on } from '@ngrx/store';
-
-import * as actions from './home.actions';
+import { createReducer, on } from '@ngrx/store';
 import { IUser } from '../ts/models/user.model';
 import { IUserTargets } from '../ts/models/targets.model';
+
+import * as actions from './home.actions';
 
 export const homeFeatureKey = 'home';
 

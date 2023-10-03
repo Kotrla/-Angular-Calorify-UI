@@ -51,7 +51,7 @@
     }
 }
 
-.container, .main {
+.container-app, .main {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -59,7 +59,7 @@
     width: 100%;
 }
 
-.container {
+.container-app {
     justify-content: space-between;
 }
 
