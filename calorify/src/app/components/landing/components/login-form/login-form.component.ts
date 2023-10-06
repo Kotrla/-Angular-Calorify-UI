@@ -24,7 +24,6 @@ export class LoginFormComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private utilService: UtilService,
         private authService: AuthService,
         private loginFormService: LoginFormService
     ) { }
@@ -40,7 +39,7 @@ export class LoginFormComponent implements OnInit {
         this.loginForm.valueChanges
             .pipe(untilDestroyed(this))
             .subscribe(formValues => {
-                this.isFormChanged = this.utilService.areFormsChanged(this.initialFormValues, formValues);
+                this.isFormChanged = UtilService.areFormsChanged(this.initialFormValues, formValues);
                 this.isFormStatusValid = this.loginForm.status === AngularFormStatus.VALID;
             });
     }

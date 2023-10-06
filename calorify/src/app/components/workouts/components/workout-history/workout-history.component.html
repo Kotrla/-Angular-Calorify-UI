@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="content-app">
+        <div class="card__header">
+            <p class="card__header--title">Workouts history</p>
+        </div>
+
+        <div class="card__content">
+            <ng-container *ngIf="workouts else noWorkoutsFoundTemplate">
+                <div *ngFor="let workout of workouts">
+                    <app-workout-history-item [workout]="workout"></app-workout-history-item>
+                </div>
+            </ng-container>
+
+            <ng-template #noWorkoutsFoundTemplate>
+                <div class="no-exercises">
+                    No Workouts found.
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

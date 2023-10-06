@@ -5,9 +5,9 @@
         </ng-container>
 
         <ng-template #mealsTemplate>
-            <ng-container *ngIf="mealsViewMode === getMealsViewMode.DAILY else historyViewMode">
+            <ng-container *ngIf="mealsViewMode === getViewMode.DAILY else historyViewMode">
                 <div class="controls">
-                    <app-button [buttonText]="'History'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="setMealsViewMode(getMealsViewMode.HISTORY)">
+                    <app-button [buttonText]="'History'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="setMealsViewMode(getViewMode.HISTORY)">
                     </app-button>
 
                     <app-button [buttonText]="'Add Food'" [width]="'100px'">
@@ -22,7 +22,7 @@
             </ng-container>
 
             <ng-template #historyViewMode>
-                <app-button [buttonText]="'Daily'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="setMealsViewMode(getMealsViewMode.DAILY)">
+                <app-button [buttonText]="'Daily'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="setMealsViewMode(getViewMode.DAILY)">
                 </app-button>
             </ng-template>
         </ng-template>

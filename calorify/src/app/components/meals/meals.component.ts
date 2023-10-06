@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { IMeal } from './ts/models/meal.model';
 import { Component, OnInit } from '@angular/core';
+import { ViewMode } from './ts/enums/view-mode.enum';
 import { MealsStoreKey } from './ts/enums/meals-store-key.enum';
-import { MealsViewMode } from './ts/enums/meals-view-mode.enum';
 import { MealsNgrxService } from './services/meals-ngrx.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { MealsNgrxService } from './services/meals-ngrx.service';
 })
 export class MealsComponent implements OnInit {
 
-    mealsViewMode: MealsViewMode = MealsViewMode.DAILY;
+    mealsViewMode: ViewMode = ViewMode.DAILY;
 
     isLoading$: Observable<boolean>;
     breakfastMeals$: Observable<IMeal>;
@@ -30,11 +30,11 @@ export class MealsComponent implements OnInit {
         this.dinnerMeals$ = this.mealsNgrxService.selectFromMealsNgrxStore<IMeal>(MealsStoreKey.DINNER);
     }
 
-    setMealsViewMode(mealsViewMode: MealsViewMode): void {
+    setMealsViewMode(mealsViewMode: ViewMode): void {
         this.mealsViewMode = mealsViewMode;
     }
 
-    public get getMealsViewMode(): typeof MealsViewMode {
-        return MealsViewMode;
+    public get getViewMode(): typeof ViewMode {
+        return ViewMode;
     }
 }
