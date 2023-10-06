@@ -22,8 +22,8 @@ export class AddMealModalComponent implements OnInit{
     selectMeals$: Observable<ISelectData[]>;
 
     constructor(
-    public bsModalRef: BsModalRef,
-    private mealsNgrxService: MealsNgrxService,
+        public bsModalRef: BsModalRef,
+        private mealsNgrxService: MealsNgrxService,
     ) { }
 
     ngOnInit(): void {
@@ -36,7 +36,7 @@ export class AddMealModalComponent implements OnInit{
             )
     }
 
-    addFoodToMeal(): void {
+    onAddFoodToMeal(): void {
         const meal = this.mealName;
         const food = this.selectFormControl.value as string;
         const quantity = this.foodQuantityControl.value as number;

@@ -1,22 +1,17 @@
 <div class="container-app">
     <div class="content-app">
         <div class="section">
-            {{ food.name }}
+            {{ exercise.name }}
         </div>
+        
         <div class="section">
-            {{ food.kcal }} kcal
+            Reps: {{ exercise.reps }}
         </div>
-
+        
         <div class="section">
-            {{ food.quantity }} g
+            Load: {{ exercise.load }} kg
         </div>
-
-        <div class="section--macros">
-            <div>Protein: {{ food.protein }} g</div>
-            <div>Carbs: {{ food.carbs }} g</div>
-            <div>Fats: {{ food.fats }} g</div>
-        </div>
-
+            
         <app-button [width]="'30px'" [height]="'30px'" [imageSource]="'../../../../../assets/images/trash.png'" 
             [imageHeight]="'20px'" [imageWidth]="'20px'" [buttonColor]="'#EF476F'">
         </app-button>

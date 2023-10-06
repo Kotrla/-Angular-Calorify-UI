@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root'
@@ -7,7 +8,11 @@ export class UtilService {
 
     constructor() { }
 
-    areFormsChanged(
+    public static getFormControl(form: FormGroup, key: string): FormControl {
+        return form.controls[key] as FormControl;
+    }
+    
+    public static areFormsChanged(
         initialFormValues: Record<string, any>, currentFormValues: Record<string, any>, skipValueTransformKey?: string[]
     ): boolean {
         const initialFormValuesToCompare = this.formatForm(initialFormValues, skipValueTransformKey);
@@ -16,7 +21,7 @@ export class UtilService {
         return JSON.stringify(initialFormValuesToCompare) !== JSON.stringify(currentFormValuesToCompare);
     }
   
-    formatForm(formValues: Record<string, any>, skipValueTransformKey?: string[]): Record<string, any> {
+    public static formatForm(formValues: Record<string, any>, skipValueTransformKey?: string[]): Record<string, any> {
         return Object
             .entries(formValues)
             .sort()

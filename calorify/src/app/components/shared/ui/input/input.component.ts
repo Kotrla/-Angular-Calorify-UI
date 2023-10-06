@@ -20,6 +20,7 @@ export class InputComponent {
   @Input() inputLabel = '';
 	@Input() inputType = 'text';
   @Input() inputWidth: string;
+  @Input() bottomSpace: boolean;
 	@Input() inputPlaceholder = '';
   @Input() passedFormControl: AbstractControl;
   

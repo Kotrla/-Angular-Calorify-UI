@@ -30,8 +30,8 @@
             width: 300px;
             display: flex;
             justify-content: space-between;
-            margin-bottom: $gap / 2;
-            margin-top: $gap / 2;
+            margin-bottom: calc($gap / 2);
+            margin-top: calc($gap / 2);
 
             &-macros {
                 width: 100px;
