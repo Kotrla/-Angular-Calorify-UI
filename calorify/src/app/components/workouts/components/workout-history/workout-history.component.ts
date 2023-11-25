@@ -16,6 +16,5 @@ export class WorkoutHistoryComponent implements OnInit {
 
   ngOnInit(): void {
       this.workoutsNgrxService.loadAllWorkouts();
-      console.log(this.workouts);
   }
 }
