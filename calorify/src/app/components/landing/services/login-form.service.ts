@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginFormService {
 
     constructor(
-    private formBuilder: FormBuilder
+        private formBuilder: FormBuilder
     ) { }
 
     buildForm(): FormGroup {

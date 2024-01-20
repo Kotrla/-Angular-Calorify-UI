@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ISelectData } from 'src/app/ts/models/select-data.model';
-import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-select',
@@ -18,7 +18,7 @@ export class SelectComponent {
   @Input() selectWidth: string;
   @Input() bottomSpace: boolean;
  	@Input() selectData: ISelectData[] | null;
-  @Input() passedFormControl: AbstractControl;
+  @Input() passedFormControl: AbstractControl | FormControl | null;
   
 
 }

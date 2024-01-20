@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { AbstractControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-input',
@@ -20,9 +20,10 @@ export class InputComponent {
   @Input() inputLabel = '';
 	@Input() inputType = 'text';
   @Input() inputWidth: string;
+  @Input() isDisabled: boolean;
   @Input() bottomSpace: boolean;
 	@Input() inputPlaceholder = '';
-  @Input() passedFormControl: AbstractControl;
+  @Input() passedFormControl: AbstractControl | FormControl | null;
   
   constructor() { }
 }

@@ -73,6 +73,7 @@
         .control {
             cursor: pointer;
             min-height: 60px;
+            border-radius: 0;
             justify-content: center;
 
             &:hover {
@@ -83,7 +84,7 @@
             &-selected {
                 color: white;
                 cursor:default;
-                background-color: $green;
+                background-color: $accent-blue;
                 
                 &:hover {
                     filter: none;

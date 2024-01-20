@@ -3,5 +3,5 @@
         {{inputLabel}}:
     </div>
 
-    <input [type]="inputType" [placeholder]="inputPlaceholder" [formControl]="$any(passedFormControl)">
+    <input [readonly]="isDisabled" [type]="inputType" [placeholder]="inputPlaceholder" [formControl]="$any(passedFormControl)">
 </div>

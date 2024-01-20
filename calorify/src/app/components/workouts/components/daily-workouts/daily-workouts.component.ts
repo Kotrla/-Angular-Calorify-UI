@@ -17,9 +17,7 @@ export class DailyWorkoutsComponent implements OnInit{
 
   constructor(private modalService: BsModalService) { }
 
-  ngOnInit(): void {
-      console.log(this.workout);
-  }
+  ngOnInit(): void { }
 
   onOpenAddModal(): void {
       this.modalRef = this.modalService.show(AddExerciseModalComponent, { backdrop: 'static' })

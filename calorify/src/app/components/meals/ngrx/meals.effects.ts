@@ -13,9 +13,9 @@ import * as mealsActions from './meals.actions';
 export class MealsEffects {
 
     constructor(
-    private actions$: Actions,
-    private mealsHttpService: MealsHttpService,
-    private mealsNgrxService: MealsNgrxService
+        private actions$: Actions,
+        private mealsHttpService: MealsHttpService,
+        private mealsNgrxService: MealsNgrxService
     ) { }
   
     loadDailyMeals$ = createEffect(() => this.actions$.pipe(

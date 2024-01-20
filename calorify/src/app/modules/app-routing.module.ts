@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../state/state';
+import { EffectsModule } from '@ngrx/effects';
 import { RoutesEnum } from '../ts/enums/routes.enum';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../services/guards/auth.guard';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HomeEffects } from '../components/home/ngrx/home.effects';
-import { EffectsModule } from '@ngrx/effects';
 
 const routes: Routes = [
     {
@@ -22,7 +23,10 @@ const routes: Routes = [
     imports: [
         RouterModule.forRoot(routes),
         StoreModule.forRoot(reducers),
-        EffectsModule.forRoot([HomeEffects])
+        EffectsModule.forRoot([ HomeEffects ]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+    }),
     ],
     exports: [RouterModule]
 })
