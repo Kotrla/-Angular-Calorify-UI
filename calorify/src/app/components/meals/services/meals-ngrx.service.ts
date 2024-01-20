@@ -19,7 +19,7 @@ export class MealsNgrxService {
     selectFromMealsNgrxStore<T>(selector: MealsStoreKey): Observable<T> {
         return this.store.pipe(select(mealsSelectors.selectFromMealsStore(selector))) as unknown as Observable<T>;
     }
-  
+
     loadDailyMeals(): void {
         this.store.dispatch(mealsActions.loadDailyMeals());
     }

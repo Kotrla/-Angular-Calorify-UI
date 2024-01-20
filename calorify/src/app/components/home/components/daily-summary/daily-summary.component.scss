@@ -7,16 +7,17 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        outline: 1px solid $dark-blue;
         box-shadow: $box-shadow;
         background-color: $dark-blue;
 
         &--title {
             color: white;
-            margin-left: $gap;
+            margin-left: $small-gap;
         }
 
         :nth-child(2) {
-            margin-right: $gap;
+            margin-right: $small-gap;
         }
     }
 

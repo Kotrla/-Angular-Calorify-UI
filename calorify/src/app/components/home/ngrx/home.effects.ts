@@ -19,11 +19,7 @@ export class HomeEffects {
             .pipe(
                 takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables)))
             )),
-        map(response => {
-            const user = response.user;
-      
-            return homeActions.finishLoadingUser({ payload: { user } })
-        })
+        map(({ userData }) =>  homeActions.finishLoadingUser({ payload: { userData } }) )
     ));
   
     loadUserTargets$ = createEffect(() => this.actions$.pipe(

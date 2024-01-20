@@ -25,7 +25,7 @@ export const loadUserDaily = createAction(
 
 export const finishLoadingUser = createAction(
     '[Home] Finish Loading User',
-    props<{ payload: { user: IUser } }>()
+    props<{ payload: { userData: IUser } }>()
 );
 
 export const finishLoadingUserTargets = createAction(

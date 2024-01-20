@@ -7,11 +7,11 @@ import * as actions from './meals.actions';
 export const mealsFeatureKey = 'meals';
 
 export interface IMealsState {
-  isLoading: boolean;
-  breakfast: IMeal | null;
-  lunch: IMeal | null;
-  dinner: IMeal | null;
-  foods: IFood[];
+    isLoading: boolean;
+    breakfast: IMeal | null;
+    lunch: IMeal | null;
+    dinner: IMeal | null;
+    foods: IFood[];
 }
 
 export const initialMealsState: IMealsState = {

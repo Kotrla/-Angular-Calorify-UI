@@ -8,13 +8,13 @@ export const homeFeatureKey = 'home';
 
 export interface IHomeState {
     isLoading: boolean;
-    user: IUser | null;
-    daily: IUserTargets | null;
+    userData: IUser | null;
     targets: IUserTargets[];
+    daily: IUserTargets | null;
 }
 
 export const initialHomeState: IHomeState = {
-    user: null,
+    userData: null,
     isLoading: true,
     daily: null,
     targets: []
@@ -26,5 +26,5 @@ export const homeReducer = createReducer(
     on(actions.finishLoadingUserDaily, (state, { payload }) => ({ ...state, daily: payload.daily })),
     on(actions.finishLoadingUserTargets, (state, { payload }) => ({ ...state, targets: payload.targets })),
     on(actions.cancelHomeObservables, (state) => ({ ...state, isLoading: true, daily: null, targets: [] })),
-    on(actions.finishLoadingUser, (state, { payload }) => ({ ...state, user: payload.user, isLoading: false }))
+    on(actions.finishLoadingUser, (state, { payload }) => ({ ...state, userData: payload.userData, isLoading: false }))
 );

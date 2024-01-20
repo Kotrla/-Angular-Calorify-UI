@@ -1,1 +1,13 @@
 @import '../home/home.component.scss';
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: $small-gap;
+}
+
+.form-content {
+    display: flex;
+    justify-content: center;
+    gap: $section-gap;
+}

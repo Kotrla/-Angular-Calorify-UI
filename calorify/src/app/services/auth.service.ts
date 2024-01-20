@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const AUTH_API = environment.api;
+const API = environment.api;
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +17,7 @@ export class AuthService {
     ) { }
 
     login(email: string, password: string): Observable<string> {
-        return this.http.post<any>(AUTH_API + '/users/login', { email, password })
+        return this.http.post<any>(API + '/users/login', { email, password })
             .pipe(
                 map((res: any) => {
                     if (!!res?.token) {
