@@ -7,44 +7,49 @@ import * as homeActions from './home.actions';
 
 @Injectable()
 export class HomeEffects {
+	constructor(private actions$: Actions, private homeHttpService: HomeHttpService) {}
 
-    constructor(
-        private actions$: Actions,
-        private homeHttpService: HomeHttpService
-    ) { }
-  
-    loadUserDetails$ = createEffect(() => this.actions$.pipe(
-        ofType(homeActions.loadUserDetails),
-        switchMap(() => this.homeHttpService.getUserDetails()
-            .pipe(
-                takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables)))
-            )),
-        map(({ userData }) =>  homeActions.finishLoadingUser({ payload: { userData } }) )
-    ));
-  
-    loadUserTargets$ = createEffect(() => this.actions$.pipe(
-        ofType(homeActions.loadUserTargets),
-        switchMap(() => this.homeHttpService.getUserTargets()
-            .pipe(
-                takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables)))
-            )),
-        map(response => {
-            const targets = response.targets;
-      
-            return homeActions.finishLoadingUserTargets({ payload: { targets } })
-        })
-    ));
-  
-    loadUserDaily$ = createEffect(() => this.actions$.pipe(
-        ofType(homeActions.loadUserDaily),
-        switchMap(() => this.homeHttpService.getUserDaily()
-            .pipe(
-                takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables)))
-            )),
-        map(response => {
-            const daily = response.daily;
-      
-            return homeActions.finishLoadingUserDaily({ payload: { daily } })
-        })
-    ));
+	loadUserDetails$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(homeActions.loadUserDetails),
+			switchMap(() =>
+				this.homeHttpService
+					.getUserDetails()
+					.pipe(takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables))))
+			),
+			map(({ userData }) => homeActions.finishLoadingUser({ payload: { userData } }))
+		)
+	);
+
+	loadUserTargets$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(homeActions.loadUserTargets),
+			switchMap(() =>
+				this.homeHttpService
+					.getUserTargets()
+					.pipe(takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables))))
+			),
+			map(response => {
+				const targets = response.targets;
+
+				return homeActions.finishLoadingUserTargets({ payload: { targets } });
+			})
+		)
+	);
+
+	loadUserDaily$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(homeActions.loadUserDaily),
+			switchMap(() =>
+				this.homeHttpService
+					.getUserDaily()
+					.pipe(takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables))))
+			),
+			map(response => {
+				const daily = response.daily;
+
+				return homeActions.finishLoadingUserDaily({ payload: { daily } });
+			})
+		)
+	);
 }

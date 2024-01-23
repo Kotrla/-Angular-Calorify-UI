@@ -1,17 +1,15 @@
 <div class="container-app">
-    <div class="content-app">
-        <ng-container *ngIf="isLoading$ | async else homeContent">
-            Loading..
-        </ng-container>
+	<div class="content-app">
+		<ng-container *ngIf="isLoading$ | async; else homeContent"> Loading.. </ng-container>
 
-        <ng-template #homeContent>
-            <ng-container *ngIf="userDetails$ | async as userDetails">
-                <p>Welcome {{ userDetails.personal.firstName }}, here is an overview of your profile</p>
+		<ng-template #homeContent>
+			<ng-container *ngIf="userDetails$ | async as userDetails">
+				<p>Welcome {{ userDetails.personal.firstName }}, here is an overview of your profile</p>
 
-                <app-daily-summary [userDetails]="userDetails" [userDaily]="userDaily$ | async"></app-daily-summary>
+				<app-daily-summary [userDetails]="userDetails" [userDaily]="userDaily$ | async"></app-daily-summary>
 
-                <!-- <app-weekly-summary [userTargets]="userTargets$ | async"></app-weekly-summary> -->
-            </ng-container>
-        </ng-template>
-    </div>
+				<!-- <app-weekly-summary [userTargets]="userTargets$ | async"></app-weekly-summary> -->
+			</ng-container>
+		</ng-template>
+	</div>
 </div>

@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { IWorkout } from '../../ts/models/workout.model';
+import { IWorkout } from '../../ts/workouts.model';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-workout-history-item',
-    templateUrl: './workout-history-item.component.html',
-    styleUrls: ['./workout-history-item.component.scss']
+	selector: 'app-workout-history-item',
+	templateUrl: './workout-history-item.component.html',
+	styleUrls: ['./workout-history-item.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkoutHistoryItemComponent {
-  @Input() workout: IWorkout;
+	@Input() workout: IWorkout;
 }

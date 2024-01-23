@@ -15,22 +15,22 @@ import { WorkoutHistoryItemComponent } from '../components/workout-history-item/
 import { WorkoutHistoryComponent } from '../components/workout-history/workout-history.component';
 
 @NgModule({
-    declarations: [
-        WorkoutsComponent,
-        ExerciseComponent,
-        DailyWorkoutsComponent,
-        WorkoutHistoryComponent,
-        AddExerciseModalComponent,
-        WorkoutHistoryItemComponent
-    ],
-    imports: [
-        CommonModule,
-        InputComponent,
-        ButtonComponent,
-        ModalModule.forRoot(),
-        EffectsModule.forFeature([WorkoutsEffects]),
-        StoreModule.forFeature(workoutsFeatureKey, workoutsReducer)
-    ],
-    providers: [BsModalRef, BsModalService]
+	declarations: [
+		WorkoutsComponent,
+		ExerciseComponent,
+		DailyWorkoutsComponent,
+		WorkoutHistoryComponent,
+		AddExerciseModalComponent,
+		WorkoutHistoryItemComponent,
+	],
+	imports: [
+		CommonModule,
+		InputComponent,
+		ButtonComponent,
+		ModalModule.forRoot(),
+		EffectsModule.forFeature([WorkoutsEffects]),
+		StoreModule.forFeature(workoutsFeatureKey, workoutsReducer),
+	],
+	providers: [BsModalRef, BsModalService],
 })
-export class WorkoutsFeatureWithoutRoutingModule { }
+export class WorkoutsFeatureWithoutRoutingModule {}

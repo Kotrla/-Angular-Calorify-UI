@@ -11,17 +11,15 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { profileFeatureKey, profileReducer } from '../ngrx/profile.reducer';
 
 @NgModule({
-    declarations: [
-        ProfileComponent
-    ],
-    imports: [
-        CommonModule,
-        InputComponent,
-        SelectComponent,
-        ButtonComponent,
-        ReactiveFormsModule,
-        EffectsModule.forFeature([ProfileEffects]),
-        StoreModule.forFeature(profileFeatureKey, profileReducer)
-    ]
+	declarations: [ProfileComponent],
+	imports: [
+		CommonModule,
+		InputComponent,
+		SelectComponent,
+		ButtonComponent,
+		ReactiveFormsModule,
+		EffectsModule.forFeature([ProfileEffects]),
+		StoreModule.forFeature(profileFeatureKey, profileReducer),
+	],
 })
-export class ProfileFeatureWithoutRoutingModule { }
+export class ProfileFeatureWithoutRoutingModule {}

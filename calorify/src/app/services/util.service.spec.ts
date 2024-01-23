@@ -3,14 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { UtilService } from './util.service';
 
 describe('UtilService', () => {
-    let service: UtilService;
+	let service: UtilService;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({});
-        service = TestBed.inject(UtilService);
-    });
+	beforeEach(() => {
+		TestBed.configureTestingModule({});
+		service = TestBed.inject(UtilService);
+	});
 
-    it('should be created', () => {
-        expect(service).toBeTruthy();
-    });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

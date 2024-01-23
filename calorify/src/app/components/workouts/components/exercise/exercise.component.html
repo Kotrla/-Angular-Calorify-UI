@@ -1,19 +1,20 @@
 <div class="container-app">
-    <div class="content-app">
-        <div class="section">
-            {{ exercise.name }}
-        </div>
-        
-        <div class="section">
-            Reps: {{ exercise.reps }}
-        </div>
-        
-        <div class="section">
-            Load: {{ exercise.load }} kg
-        </div>
-            
-        <app-button [width]="'30px'" [height]="'30px'" [imageSource]="'../../../../../assets/images/trash.png'" 
-            [imageHeight]="'20px'" [imageWidth]="'20px'" [buttonColor]="'#EF476F'">
-        </app-button>
-    </div>
+	<div class="content-app">
+		<div class="section">
+			{{ exercise.name }}
+		</div>
+
+		<div class="section">Reps: {{ exercise.reps }}</div>
+
+		<div class="section">Load: {{ exercise.load }} kg</div>
+
+		<app-button
+			[width]="'30px'"
+			[height]="'30px'"
+			[imageSource]="'../../../../../assets/images/trash.png'"
+			[imageHeight]="'20px'"
+			[imageWidth]="'20px'"
+			[buttonColor]="'#EF476F'">
+		</app-button>
+	</div>
 </div>

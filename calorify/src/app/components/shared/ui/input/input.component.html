@@ -1,7 +1,9 @@
-<div class="input" [ngStyle]="{'width': inputWidth || '', 'margin-bottom': bottomSpace ? '16px' : '0px' }">
-    <div class="input__label" *ngIf="showLabel">
-        {{inputLabel}}:
-    </div>
+<div class="input" [ngStyle]="{ width: inputWidth || '', 'margin-bottom': bottomSpace ? '16px' : '0px' }">
+	<div class="input__label" *ngIf="showLabel">{{ inputLabel }}:</div>
 
-    <input [readonly]="isDisabled" [type]="inputType" [placeholder]="inputPlaceholder" [formControl]="$any(passedFormControl)">
+	<input
+		[readonly]="isDisabled"
+		[type]="inputType"
+		[placeholder]="inputPlaceholder"
+		[formControl]="$any(passedFormControl)" />
 </div>

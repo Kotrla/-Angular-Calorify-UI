@@ -1,26 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginFormMode } from './ts/enums/login-form-mode.enum';
+import { LoginFormMode } from './ts/landing.model';
 
 @Component({
-    selector: 'app-landing',
-    templateUrl: './landing.component.html',
-    styleUrls: ['./landing.component.scss']
+	selector: 'app-landing',
+	templateUrl: './landing.component.html',
+	styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
+	formMode: LoginFormMode;
 
-    formMode: LoginFormMode;
+	ngOnInit(): void {
+		this.setFormMode(LoginFormMode.LOGIN);
+	}
 
-    constructor() { }
+	setFormMode(formMode: LoginFormMode): void {
+		this.formMode = formMode;
+	}
 
-    ngOnInit(): void {
-        this.formMode = this.getFormMode.LOGIN;
-    }
-
-    setFormMode(formMode: LoginFormMode): void {
-        this.formMode = formMode;
-    }
-
-    public get getFormMode(): typeof LoginFormMode {
-        return LoginFormMode;
-    } 
+	public get getFormMode(): typeof LoginFormMode {
+		return LoginFormMode;
+	}
 }

@@ -1,31 +1,30 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const API = environment.api;
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class ProfileHttpService {
+	constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient) { }
+	getUserData(): Observable<any> {
+		const getUserData = API + '/users';
 
-    getUserData(): Observable<any> {
-        const getUserData = API + '/users';
+		return this.http.get<any>(getUserData);
+	}
 
-        return this.http.get<any>(getUserData);
-    }
+	updateUserData(userData: any): Observable<any> {
+		const updateUserData = API + '/users/update';
 
-    updateUserData(userData: any): Observable<any> {
-        const updateUserData = API + '/users/update';
+		return this.http.put<any>(updateUserData, userData);
+	}
 
-        return this.http.put<any>(updateUserData, userData);
-    }
+	updateUserMacros(userMacros: any): Observable<any> {
+		const updateUserMacros = API + '/users/updateMacros';
 
-    updateUserMacros(userMacros: any): Observable<any> {
-        const updateUserMacros = API + '/users/updateMacros';
-
-        return this.http.put<any>(updateUserMacros, userMacros);
-    }
+		return this.http.put<any>(updateUserMacros, userMacros);
+	}
 }

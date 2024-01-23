@@ -1,27 +1,37 @@
 <div class="container-app">
-    <div class="content-app">
-        <ng-container *ngIf="isLoading$ | async else workoutsTemplate">
-            Loading...
-        </ng-container>
-        
-        <ng-template #workoutsTemplate>
-            <ng-container *ngIf="workoutsViewMode === getViewMode.DAILY else historyViewMode">
-                <div class="controls">
-                    <app-button [buttonText]="'History'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="setWorkoutsViewMode(getViewMode.HISTORY)">
-                    </app-button>
-                </div>
-                
-                <app-daily-workouts [workout]="dailyWorkout$ | async"></app-daily-workouts>
-            </ng-container>
+	<div class="content-app">
+		<ng-container *ngIf="isLoading$ | async; else workoutsTemplate"> Loading... </ng-container>
 
-            <ng-template #historyViewMode>
-                <div class="controls">
-                    <app-button [buttonText]="'Daily'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="setWorkoutsViewMode(getViewMode.DAILY)">
-                    </app-button>
-                </div>
+		<ng-template #workoutsTemplate>
+			<ng-container *ngIf="workoutsViewMode === getViewMode.DAILY; else historyViewMode">
+				<div class="controls">
+					<app-button
+						[buttonText]="'History'"
+						[buttonColor]="'#474677'"
+						[borderColor]="'#474677'"
+						[width]="'100px'"
+						(buttonClickEvent)="setWorkoutsViewMode(getViewMode.HISTORY)">
+					</app-button>
+				</div>
 
-                <app-workout-history [historyIsLoading]="historyIsLoading$ | async" [workouts]="allWorkouts$ | async"></app-workout-history>
-            </ng-template>
-        </ng-template>
-    </div>
+				<app-daily-workouts [workout]="dailyWorkout$ | async"></app-daily-workouts>
+			</ng-container>
+
+			<ng-template #historyViewMode>
+				<div class="controls">
+					<app-button
+						[buttonText]="'Daily'"
+						[buttonColor]="'#474677'"
+						[borderColor]="'#474677'"
+						[width]="'100px'"
+						(buttonClickEvent)="setWorkoutsViewMode(getViewMode.DAILY)">
+					</app-button>
+				</div>
+
+				<app-workout-history
+					[historyIsLoading]="historyIsLoading$ | async"
+					[workouts]="allWorkouts$ | async"></app-workout-history>
+			</ng-template>
+		</ng-template>
+	</div>
 </div>

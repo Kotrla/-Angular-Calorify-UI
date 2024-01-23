@@ -14,21 +14,16 @@ import { MealItemComponent } from '../components/meal-item/meal-item.component';
 import { AddMealModalComponent } from '../components/add-meal-modal/add-meal-modal.component';
 
 @NgModule({
-    declarations: [
-        MealComponent,
-        MealsComponent,
-        MealItemComponent,
-        AddMealModalComponent
-    ],
-    imports: [
-        CommonModule,
-        ButtonComponent,
-        SelectComponent,
-        InputComponent,
-        ModalModule.forRoot(),
-        EffectsModule.forFeature([MealsEffects]),
-        StoreModule.forFeature(mealsFeatureKey, mealsReducer)
-    ],
-    providers: [BsModalRef, BsModalService]
+	declarations: [MealComponent, MealsComponent, MealItemComponent, AddMealModalComponent],
+	imports: [
+		CommonModule,
+		ButtonComponent,
+		SelectComponent,
+		InputComponent,
+		ModalModule.forRoot(),
+		EffectsModule.forFeature([MealsEffects]),
+		StoreModule.forFeature(mealsFeatureKey, mealsReducer),
+	],
+	providers: [BsModalRef, BsModalService],
 })
-export class MealsFeatureWithoutRoutingModule { }
+export class MealsFeatureWithoutRoutingModule {}

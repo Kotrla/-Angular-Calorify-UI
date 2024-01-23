@@ -1,22 +1,29 @@
 <div class="sidebar">
-    <div class="container-app">
-        <div class="main">
-            <div class="logo">
-                <img src="../../../assets/images/calorify-logo-white.png" alt="logo">
-            </div>
+	<div class="container-app">
+		<div class="main">
+			<div class="logo">
+				<img src="../../../assets/images/calorify-logo-white.png" alt="logo" />
+			</div>
 
-            <ng-container *ngFor="let sidebarItem of SIDEBAR_ITEMS">
-                <div [ngClass]="sidebarItem.name === selectedSidebarItem ? 'sidebar-item-selected' : 'sidebar-item'" (click)="onSidebarItem(sidebarItem.name)">
-                    <div class="sidebar-item-content">
-                        <img [src]="sidebarItem.image" [alt]="sidebarItem.name">
-                        <p>{{ sidebarItem.name }}</p>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
+			<ng-container *ngFor="let sidebarItem of SIDEBAR_ITEMS">
+				<div
+					[ngClass]="sidebarItem.name === selectedSidebarItem ? 'sidebar-item-selected' : 'sidebar-item'"
+					(click)="onSidebarItem(sidebarItem.name)">
+					<div class="sidebar-item-content">
+						<img [src]="sidebarItem.image" [alt]="sidebarItem.name" />
+						<p>{{ sidebarItem.name }}</p>
+					</div>
+				</div>
+			</ng-container>
+		</div>
 
-        <div class="logout">
-            <app-button [buttonText]="'Log out'" (buttonClickEvent)="onLogout()" [width]="'150px'" [buttonColor]="'#EF476F'" [borderColor]="'#EF476F'"></app-button>
-        </div>
-    </div>
+		<div class="logout">
+			<app-button
+				[buttonText]="'Log out'"
+				(buttonClickEvent)="onLogout()"
+				[width]="'150px'"
+				[buttonColor]="'#EF476F'"
+				[borderColor]="'#EF476F'"></app-button>
+		</div>
+	</div>
 </div>

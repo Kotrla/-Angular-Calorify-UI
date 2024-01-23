@@ -4,9 +4,6 @@ import { profileRoutes } from '../utils/profile.routes';
 import { ProfileFeatureWithoutRoutingModule } from './profile-feature-without-routing.module';
 
 @NgModule({
-    imports: [
-        ProfileFeatureWithoutRoutingModule,
-        RouterModule.forChild(profileRoutes)
-    ]
+	imports: [ProfileFeatureWithoutRoutingModule, RouterModule.forChild(profileRoutes)],
 })
-export class ProfileFeatureModule { }
+export class ProfileFeatureModule {}

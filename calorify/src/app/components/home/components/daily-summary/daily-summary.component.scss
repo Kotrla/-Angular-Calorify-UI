@@ -2,43 +2,43 @@
 @import '../../../../styles/partials/variables';
 
 .card {
-    &__header {
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        outline: 1px solid $dark-blue;
-        box-shadow: $box-shadow;
-        background-color: $dark-blue;
+	&__header {
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		outline: 1px solid $dark-blue;
+		box-shadow: $box-shadow;
+		background-color: $dark-blue;
 
-        &--title {
-            color: white;
-            margin-left: $small-gap;
-        }
+		&--title {
+			color: white;
+			margin-left: $small-gap;
+		}
 
-        :nth-child(2) {
-            margin-right: $small-gap;
-        }
-    }
+		:nth-child(2) {
+			margin-right: $small-gap;
+		}
+	}
 
-    &__content {
-        padding: $gap;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+	&__content {
+		padding: $gap;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 
-        &--item {
-            width: 300px;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: calc($gap / 2);
-            margin-top: calc($gap / 2);
+		&--item {
+			width: 300px;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: calc($gap / 2);
+			margin-top: calc($gap / 2);
 
-            &-macros {
-                width: 100px;
-                display: flex;
-                justify-content: space-between;
-            }
-        }
-    }
+			&-macros {
+				width: 100px;
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
 }

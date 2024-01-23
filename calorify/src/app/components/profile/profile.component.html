@@ -1,47 +1,100 @@
 <div class="container-app">
-    <div class="content-app">
-        <ng-container *ngIf="isLoading$ | async else mealsTemplate">
-            Loading...
-        </ng-container>
+	<div class="content-app">
+		<ng-container *ngIf="isLoading$ | async; else mealsTemplate"> Loading... </ng-container>
 
-        <ng-template #mealsTemplate>
-            <form [formGroup]="userDataForm" *ngIf="userDataForm">
-                <div class="form-content">
-                    <div class="column">
-                        <h4>Personal information:</h4>
-                        <app-input [inputLabel]="'First name'" [inputType]="'string'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('firstName')">
-                        </app-input>
-                        <app-input [inputLabel]="'Last name'" [inputType]="'string'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('lastName')">
-                        </app-input>
-                        <app-input [inputLabel]="'Date'" [inputType]="'string'" [isDisabled]="true" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('date')">
-                        </app-input>
-                        <app-select [selectData]="genderSelectData" [selectLabel]="'Gender'" [selectWidth]="'400px'" [passedFormControl]="userDataForm.get('gender')">
-                        </app-select>
-                        <app-select [selectData]="goalSelectData" [selectLabel]="'Goal'" [selectWidth]="'400px'" [passedFormControl]="userDataForm.get('goal')">
-                        </app-select>
-                        <app-input [inputLabel]="'Email'" [inputType]="'string'" [isDisabled]="true" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('email')">
-                        </app-input>
-                        <app-input [inputLabel]="'Weight'" [inputType]="'number'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('weight')">
-                        </app-input>
-                        <app-input [inputLabel]="'Height'" [inputType]="'number'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('height')">
-                        </app-input>
-                    </div>
-                    <div class="column">
-                        <h4>Nutritional information:</h4>
-                        <app-input [inputLabel]="'Calories'" [inputType]="'number'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('kcal')">
-                        </app-input>
-                        <app-input [inputLabel]="'Protein'" [inputType]="'number'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('protein')">
-                        </app-input>
-                        <app-input [inputLabel]="'Carbohydrates'" [inputType]="'number'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('carbs')">
-                        </app-input>
-                        <app-input [inputLabel]="'Fats'" [inputType]="'number'" [inputWidth]="'400px'" [passedFormControl]="userDataForm.get('fats')">
-                        </app-input>
-                    </div>
-                    
-                    <app-button [buttonText]="'Save'" [buttonColor]="'#474677'" [borderColor]="'#474677'" [width]="'100px'" (buttonClickEvent)="onSaveUserData()">
-                    </app-button>
-                </div>
-            </form>
-        </ng-template>
-    </div>
+		<ng-template #mealsTemplate>
+			<form [formGroup]="userDataForm" *ngIf="userDataForm">
+				<div class="form-content">
+					<div class="column">
+						<h4>Personal information:</h4>
+						<app-input
+							[inputLabel]="'First name'"
+							[inputType]="'string'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('firstName')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Last name'"
+							[inputType]="'string'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('lastName')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Date'"
+							[inputType]="'string'"
+							[isDisabled]="true"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('date')">
+						</app-input>
+						<app-select
+							[selectData]="genderSelectData"
+							[selectLabel]="'Gender'"
+							[selectWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('gender')">
+						</app-select>
+						<app-select
+							[selectData]="goalSelectData"
+							[selectLabel]="'Goal'"
+							[selectWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('goal')">
+						</app-select>
+						<app-input
+							[inputLabel]="'Email'"
+							[inputType]="'string'"
+							[isDisabled]="true"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('email')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Weight'"
+							[inputType]="'number'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('weight')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Height'"
+							[inputType]="'number'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('height')">
+						</app-input>
+					</div>
+					<div class="column">
+						<h4>Nutritional information:</h4>
+						<app-input
+							[inputLabel]="'Calories'"
+							[inputType]="'number'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('kcal')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Protein'"
+							[inputType]="'number'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('protein')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Carbohydrates'"
+							[inputType]="'number'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('carbs')">
+						</app-input>
+						<app-input
+							[inputLabel]="'Fats'"
+							[inputType]="'number'"
+							[inputWidth]="'400px'"
+							[passedFormControl]="userDataForm.get('fats')">
+						</app-input>
+					</div>
+
+					<app-button
+						[buttonText]="'Save'"
+						[buttonColor]="'#474677'"
+						[borderColor]="'#474677'"
+						[width]="'100px'"
+						(buttonClickEvent)="onSaveUserData()">
+					</app-button>
+				</div>
+			</form>
+		</ng-template>
+	</div>
 </div>

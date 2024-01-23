@@ -4,19 +4,18 @@ import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+	constructor(private authService: AuthService) {}
 
-    constructor(private authService: AuthService) { }
+	intercept(req: HttpRequest<any>, next: HttpHandler) {
+		const authToken = this.authService.getToken();
 
-    intercept(req: HttpRequest<any>, next: HttpHandler) {
-        const authToken = this.authService.getToken();
+		req = req.clone({
+			setHeaders: {
+				Authorization: 'Bearer ' + authToken,
+				'Content-Type': 'application/json',
+			},
+		});
 
-        req = req.clone({
-            setHeaders: {
-                Authorization: "Bearer " + authToken,
-                'Content-Type': 'application/json'
-            }
-        });
-
-        return next.handle(req);
-    }
+		return next.handle(req);
+	}
 }

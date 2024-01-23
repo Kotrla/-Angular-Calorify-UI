@@ -9,15 +9,11 @@ import { DailySummaryComponent } from '../components/daily-summary/daily-summary
 import { WeeklySummaryComponent } from '../components/weekly-summary/weekly-summary.component';
 
 @NgModule({
-    declarations: [
-        HomeComponent,
-        DailySummaryComponent,
-        WeeklySummaryComponent
-    ],
-    imports: [
-        CommonModule,
-        EffectsModule.forFeature([HomeEffects]),
-        StoreModule.forFeature(homeFeatureKey, homeReducer)
-    ]
+	declarations: [HomeComponent, DailySummaryComponent, WeeklySummaryComponent],
+	imports: [
+		CommonModule,
+		EffectsModule.forFeature([HomeEffects]),
+		StoreModule.forFeature(homeFeatureKey, homeReducer),
+	],
 })
-export class HomeFeatureWithoutRoutingModule { }
+export class HomeFeatureWithoutRoutingModule {}

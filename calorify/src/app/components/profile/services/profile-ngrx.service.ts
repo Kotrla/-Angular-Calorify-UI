@@ -8,37 +8,36 @@ import * as profileActions from '../ngrx/profile.actions';
 import * as profileSelectors from '../ngrx/profile.selectors';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class ProfileNgrxService {
+	constructor(private store: Store<IAppState>) {}
 
-  constructor(
-    private store: Store<IAppState>
-  ) { }
+	selectFromProfileNgrxStore<T>(selector: ProfileStoreKey): Observable<T> {
+		return this.store.pipe(
+			select(profileSelectors.selectFromProfileStore(selector))
+		) as unknown as Observable<T>;
+	}
 
-  selectFromProfileNgrxStore<T>(selector: ProfileStoreKey): Observable<T> {
-      return this.store.pipe(select(profileSelectors.selectFromProfileStore(selector))) as unknown as Observable<T>;
-  }
-  
-  loadUserData(): void {
-      this.store.dispatch(profileActions.loadUserData());
-  }
-  
-  updateUserData(userData: IUser): void {
-    const payload = { userData }
+	loadUserData(): void {
+		this.store.dispatch(profileActions.loadUserData());
+	}
 
-    this.store.dispatch(profileActions.updateUserData({ payload }));
-  }
-  
-  updateUserMacros(userData: IUser): void {
-    const payload = { userData }
+	updateUserData(userData: IUser): void {
+		const payload = { userData };
 
-    this.store.dispatch(profileActions.updateUserMacros({ payload }));
-  }
+		this.store.dispatch(profileActions.updateUserData({ payload }));
+	}
 
-  setProfileIsLoading(isLoading: boolean): void {
-    const payload = { isLoading };
+	updateUserMacros(userData: IUser): void {
+		const payload = { userData };
 
-    this.store.dispatch(profileActions.setProfileIsLoading({ payload }))
-  }
+		this.store.dispatch(profileActions.updateUserMacros({ payload }));
+	}
+
+	setProfileIsLoading(isLoading: boolean): void {
+		const payload = { isLoading };
+
+		this.store.dispatch(profileActions.setProfileIsLoading({ payload }));
+	}
 }

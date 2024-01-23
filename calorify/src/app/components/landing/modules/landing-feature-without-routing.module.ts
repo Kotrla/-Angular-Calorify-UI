@@ -8,16 +8,7 @@ import { LoginFormComponent } from '../components/login-form/login-form.componen
 import { RegisterFormComponent } from '../components/register-form/register-form.component';
 
 @NgModule({
-    declarations: [
-        LandingComponent,
-        LoginFormComponent,
-        RegisterFormComponent
-    ],
-    imports: [
-        CommonModule,
-        InputComponent,
-        ButtonComponent,
-        ReactiveFormsModule
-    ]
+	declarations: [LandingComponent, LoginFormComponent, RegisterFormComponent],
+	imports: [CommonModule, InputComponent, ButtonComponent, ReactiveFormsModule],
 })
-export class LandingFeatureWithoutRoutingModule { }
+export class LandingFeatureWithoutRoutingModule {}

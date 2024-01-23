@@ -6,14 +6,7 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 
 @NgModule({
-    declarations: [
-        SidebarComponent,
-        DashboardComponent
-    ],
-    imports: [
-        CommonModule,
-        ButtonComponent,
-        RouterModule
-    ]
+	declarations: [SidebarComponent, DashboardComponent],
+	imports: [CommonModule, ButtonComponent, RouterModule],
 })
-export class DashboardFeatureWithoutRoutingModule { }
+export class DashboardFeatureWithoutRoutingModule {}

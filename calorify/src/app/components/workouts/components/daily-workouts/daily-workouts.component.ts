@@ -1,25 +1,24 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { IWorkout } from '../../ts/models/workout.model';
+import { IWorkout } from '../../ts/workouts.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { AddExerciseModalComponent } from '../add-exercise-modal/add-exercise-modal.component';
 
 @Component({
-    selector: 'app-daily-workouts',
-    templateUrl: './daily-workouts.component.html',
-    styleUrls: [ './daily-workouts.component.scss' ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-daily-workouts',
+	templateUrl: './daily-workouts.component.html',
+	styleUrls: ['./daily-workouts.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DailyWorkoutsComponent implements OnInit{
+export class DailyWorkoutsComponent implements OnInit {
+	@Input() workout: IWorkout | null;
 
-  @Input() workout: IWorkout | null;
+	modalRef: BsModalRef;
 
-  modalRef: BsModalRef;
+	constructor(private modalService: BsModalService) {}
 
-  constructor(private modalService: BsModalService) { }
+	ngOnInit(): void {}
 
-  ngOnInit(): void { }
-
-  onOpenAddModal(): void {
-      this.modalRef = this.modalService.show(AddExerciseModalComponent, { backdrop: 'static' })
-  }
+	onOpenAddModal(): void {
+		this.modalRef = this.modalService.show(AddExerciseModalComponent, { backdrop: 'static' });
+	}
 }
