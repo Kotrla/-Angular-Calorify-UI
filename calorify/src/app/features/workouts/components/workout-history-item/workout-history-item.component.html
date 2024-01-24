@@ -1,8 +1,20 @@
-<div class="container-app">
+<div class="container-app" [ngClass]="{ 'container-app-expanded': isExpanded }">
 	<div class="content-app">
 		<div class="section">
 			{{ workout.dateCreated }}
 		</div>
-		<div class="section"></div>
+		<div (click)="onToggleExpanded()">
+			<img
+				[src]="'../../../assets/icons/' + (isExpanded ? 'chevron-up.svg' : 'chevron-down.svg')"
+				alt="chevron"
+				class="svg" />
+		</div>
+	</div>
+</div>
+<div *ngIf="isExpanded" class="container-app container-expanded">
+	<div class="content-app content-expanded">
+		<ng-container *ngFor="let exercise of workout.exercises">
+			<app-exercise [exercise]="exercise" [isHistoryWorkout]="true"></app-exercise>
+		</ng-container>
 	</div>
 </div>

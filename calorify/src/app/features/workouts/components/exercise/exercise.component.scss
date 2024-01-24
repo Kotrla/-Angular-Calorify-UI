@@ -1,1 +1,5 @@
 @import '../../../meals/components/meal-item/meal-item.component.scss';
+
+:host {
+	width: 100%;
+}

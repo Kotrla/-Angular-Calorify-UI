@@ -19,5 +19,5 @@ export interface IWorkout {
 export interface IExercise {
 	name: string;
 	reps: number;
-	load: number;
+	load?: number;
 }

@@ -6,9 +6,10 @@
 
 		<div class="section">Reps: {{ exercise.reps }}</div>
 
-		<div class="section">Load: {{ exercise.load }} kg</div>
+		<div class="section">Load: {{ exercise.load ?? 0 }} kg</div>
 
 		<app-button
+			*ngIf="!isHistoryWorkout"
 			[width]="'30px'"
 			[height]="'30px'"
 			[imageSource]="'../../../../../assets/images/trash.png'"

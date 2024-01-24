@@ -31,8 +31,8 @@
 			width: 300px;
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: calc($gap / 2);
-			margin-top: calc($gap / 2);
+			margin-bottom: $small-gap;
+			margin-top: $small-gap;
 
 			&-macros {
 				width: 100px;
