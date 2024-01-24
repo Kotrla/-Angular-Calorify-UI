@@ -41,7 +41,10 @@ export class DailyWorkoutsComponent implements OnInit, OnDestroy {
 	}
 
 	onOpenAddModal(): void {
-		this.modalRef = this.modalService.show(AddExerciseModalComponent, { backdrop: 'static' });
+		this.modalRef = this.modalService.show(AddExerciseModalComponent, {
+			backdrop: 'static',
+			class: 'modal-sm',
+		});
 	}
 
 	onGoToHistory(): void {

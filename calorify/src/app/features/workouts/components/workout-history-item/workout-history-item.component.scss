@@ -1,1 +1,23 @@
 @import '../../../meals/components/meal-item/meal-item.component.scss';
+@import '../../../../styles/svg.scss';
+
+.svg {
+	cursor: pointer;
+}
+
+.content-expanded {
+	display: flex;
+	flex-direction: column;
+	gap: $small-gap;
+	background-color: $darker-gray;
+}
+
+.container-expanded {
+	height: fit-content;
+	border-radius: 0px 0px $small-gap $small-gap;
+	background-color: $darker-gray;
+}
+
+.container-app-expanded {
+	border-radius: $small-gap $small-gap 0px 0px;
+}

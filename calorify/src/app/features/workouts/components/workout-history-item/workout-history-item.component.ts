@@ -9,4 +9,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class WorkoutHistoryItemComponent {
 	@Input() workout: IWorkout;
+
+	isExpanded: boolean;
+
+	onToggleExpanded(): void {
+		this.isExpanded = !this.isExpanded;
+	}
 }

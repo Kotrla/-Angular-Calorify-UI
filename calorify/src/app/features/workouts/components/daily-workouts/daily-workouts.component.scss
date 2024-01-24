@@ -1,2 +1,6 @@
+@import '../../../meals/meals.component.scss';
 @import '../../../meals/components/meal/meal.component.scss';
-@import '../../../home/home.component.scss';
+
+.no-gap {
+	gap: 0;
+}

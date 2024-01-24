@@ -17,8 +17,5 @@
 .content-app {
 	display: flex;
 	flex-direction: column;
-
-	> * {
-		margin-bottom: $section-gap;
-	}
+	gap: $section-gap;
 }
