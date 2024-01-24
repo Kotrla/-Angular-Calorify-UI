@@ -1,8 +1,13 @@
 export enum WorkoutsStoreKey {
 	IS_LOADING = 'isLoading',
-	HISTORY_IS_LOADING = 'historyIsLoading',
+	IS_LOADING_HISTORY = 'isLoadingHistory',
 	DAILY_WORKOUT = 'dailyUserWorkout',
 	ALL_WORKOUTS = 'allUserWorkouts',
+}
+
+export enum WorkoutsRoutes {
+	DAILY = 'daily',
+	HISTORY = 'history',
 }
 
 export interface IWorkout {

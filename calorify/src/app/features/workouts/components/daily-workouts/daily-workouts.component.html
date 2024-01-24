@@ -1,28 +1,46 @@
-<div class="card">
+<div class="container-app">
 	<div class="content-app">
-		<div class="card__header">
-			<p class="card__header--title">Workout</p>
+		<ng-container *ngIf="isLoading$ | async; else workoutsTemplate"> Loading... </ng-container>
 
-			<app-button
-				[width]="'30px'"
-				[height]="'30px'"
-				[imageSource]="'../../../../../assets/images/plus.png'"
-				[imageHeight]="'20px'"
-				[imageWidth]="'20px'"
-				(buttonClickEvent)="onOpenAddModal()">
-			</app-button>
-		</div>
+		<ng-template #workoutsTemplate>
+			<div class="controls">
+				<app-button
+					[buttonText]="'History'"
+					[buttonColor]="'#474677'"
+					[borderColor]="'#474677'"
+					[width]="'100px'"
+					(buttonClickEvent)="onGoToHistory()">
+				</app-button>
+			</div>
 
-		<div class="card__content">
-			<ng-container *ngIf="workout; else noExercisesFoundTemplate">
-				<div *ngFor="let exercise of workout.exercises">
-					<app-exercise [exercise]="exercise"></app-exercise>
+			<div class="card">
+				<div class="content-app">
+					<div class="card__header">
+						<p class="card__header--title">Workout</p>
+
+						<app-button
+							[width]="'30px'"
+							[height]="'30px'"
+							[imageSource]="'../../../../../assets/images/plus.png'"
+							[imageHeight]="'20px'"
+							[imageWidth]="'20px'"
+							(buttonClickEvent)="onOpenAddModal()">
+						</app-button>
+					</div>
+
+					<div class="card__content">
+						<ng-container *ngIf="dailyWorkout$ | async as dailyWorkout; else noExercisesFoundTemplate">
+							<div *ngFor="let exercise of dailyWorkout.exercises">
+								<app-exercise [exercise]="exercise"></app-exercise>
+							</div>
+						</ng-container>
+
+						<ng-template #noExercisesFoundTemplate>
+							<div class="no-exercises">No Exercises found.</div>
+						</ng-template>
+					</div>
 				</div>
-			</ng-container>
-
-			<ng-template #noExercisesFoundTemplate>
-				<div class="no-exercises">No Exercises found.</div>
-			</ng-template>
-		</div>
+			</div>
+		</ng-template>
 	</div>
 </div>

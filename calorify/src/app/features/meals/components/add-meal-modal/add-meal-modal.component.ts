@@ -1,15 +1,16 @@
 import { Observable, map, tap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Component, OnInit } from '@angular/core';
-import { MealsNgrxService } from '../../services/meals-ngrx.service';
 import { ISelectData } from '../../../../core/ts/app.model';
 import { IFood, MealsStoreKey } from '../../ts/meals.model';
+import { MealsNgrxService } from '../../services/meals-ngrx.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-add-meal-modal',
 	templateUrl: './add-meal-modal.component.html',
 	styleUrls: ['./add-meal-modal.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddMealModalComponent implements OnInit {
 	mealName: string;

@@ -55,8 +55,8 @@ export class SidebarComponent implements OnInit {
 	}
 
 	getSidebarItemFromUrl(url: string): SidebarItem {
-		const itemFromUrl = url.slice(4);
+		const itemFromUrl = url.split('/')[2];
 
-		return (itemFromUrl[0].toUpperCase() + itemFromUrl.slice(1)) as SidebarItem;
+		return (itemFromUrl.charAt(0).toUpperCase() + itemFromUrl.slice(1)) as SidebarItem;
 	}
 }

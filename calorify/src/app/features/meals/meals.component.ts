@@ -1,12 +1,13 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
 import { MealsNgrxService } from './services/meals-ngrx.service';
 import { ViewMode, IMeal, MealsStoreKey } from './ts/meals.model';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-meals',
 	templateUrl: './meals.component.html',
 	styleUrls: ['./meals.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MealsComponent implements OnInit {
 	mealsViewMode: ViewMode = ViewMode.DAILY;

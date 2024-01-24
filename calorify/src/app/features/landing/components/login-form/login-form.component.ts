@@ -1,11 +1,11 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 import { ILoginForm } from '../../ts/landing.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UtilService } from '../../../../core/services/util.service';
 import { AuthService } from '../../../../core/services/auth.service';
 import { LoginFormService } from '../../services/login-form.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AngularFormStatus, RoutesEnum } from '../../../../core/ts/app.model';
 
 @UntilDestroy()
@@ -13,6 +13,7 @@ import { AngularFormStatus, RoutesEnum } from '../../../../core/ts/app.model';
 	selector: 'app-login-form',
 	templateUrl: './login-form.component.html',
 	styleUrls: ['./login-form.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent implements OnInit {
 	loginForm: FormGroup;

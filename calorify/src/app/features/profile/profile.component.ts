@@ -1,17 +1,18 @@
 import { Observable, filter } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { ISelectData } from '../../core/ts/app.model';
-import { Component, OnInit } from '@angular/core';
 import { ProfileNgrxService } from './services/profile-ngrx.service';
 import { ProfileFormService } from './services/profile-form.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { IUser, IUserForm, ProfileStoreKey } from './ts/profile.model';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @UntilDestroy()
 @Component({
 	selector: 'app-profile',
 	templateUrl: './profile.component.html',
 	styleUrls: ['./profile.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileComponent implements OnInit {
 	goalSelectData: ISelectData[];
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit {
 	isLoading$: Observable<boolean>;
 
 	constructor(
+		private cdRef: ChangeDetectorRef,
 		private profileNgrxService: ProfileNgrxService,
 		private profileFormService: ProfileFormService
 	) {}
@@ -43,6 +45,8 @@ export class ProfileComponent implements OnInit {
 			)
 			.subscribe(userData => {
 				this.userDataForm = this.profileFormService.buildUserDataForm(userData);
+
+				this.cdRef.markForCheck();
 			});
 	}
 

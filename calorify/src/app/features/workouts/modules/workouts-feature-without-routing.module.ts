@@ -13,6 +13,7 @@ import { DailyWorkoutsComponent } from '../components/daily-workouts/daily-worko
 import { WorkoutHistoryComponent } from '../components/workout-history/workout-history.component';
 import { AddExerciseModalComponent } from '../components/add-exercise-modal/add-exercise-modal.component';
 import { WorkoutHistoryItemComponent } from '../components/workout-history-item/workout-history-item.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
 	declarations: [
@@ -27,6 +28,7 @@ import { WorkoutHistoryItemComponent } from '../components/workout-history-item/
 		CommonModule,
 		InputComponent,
 		ButtonComponent,
+		RouterModule,
 		ModalModule.forRoot(),
 		EffectsModule.forFeature([WorkoutsEffects]),
 		StoreModule.forFeature(workoutsFeatureKey, workoutsReducer),

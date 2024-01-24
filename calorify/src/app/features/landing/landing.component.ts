@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LoginFormMode } from './ts/landing.model';
 
 @Component({
 	selector: 'app-landing',
 	templateUrl: './landing.component.html',
 	styleUrls: ['./landing.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingComponent implements OnInit {
 	formMode: LoginFormMode;
 
 	ngOnInit(): void {
-		this.setFormMode(LoginFormMode.LOGIN);
+		this.onSetFormMode(LoginFormMode.LOGIN);
 	}
 
-	setFormMode(formMode: LoginFormMode): void {
+	onSetFormMode(formMode: LoginFormMode): void {
 		this.formMode = formMode;
 	}
 

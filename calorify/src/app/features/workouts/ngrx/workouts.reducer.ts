@@ -7,14 +7,14 @@ export const workoutsFeatureKey = 'workouts';
 
 export interface IWorkoutsState {
 	isLoading: boolean;
-	historyIsLoading: boolean;
+	isLoadingHistory: boolean;
 	dailyUserWorkout: IWorkout | null;
 	allUserWorkouts: IWorkout[];
 }
 
 export const initialWorkoutsState: IWorkoutsState = {
 	isLoading: true,
-	historyIsLoading: true,
+	isLoadingHistory: true,
 	dailyUserWorkout: null,
 	allUserWorkouts: [],
 };
@@ -34,11 +34,12 @@ export const workoutsReducer = createReducer(
 		...state,
 		allUserWorkouts: payload.workouts,
 		isLoading: false,
-		historyIsLoading: false,
+		isLoadingHistory: false,
 	})),
 	on(workoutsActions.cancelWorkoutsObservables, state => ({
 		...state,
 		isLoading: true,
+		isLoadingHistory: true,
 		dailyUserWorkout: null,
 		allUserWorkouts: [],
 	}))
