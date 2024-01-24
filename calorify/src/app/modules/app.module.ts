@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { AuthInterceptor } from '../interceptors/auth-interceptor';
+import { AuthInterceptor } from '../core/interceptors/auth-interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({

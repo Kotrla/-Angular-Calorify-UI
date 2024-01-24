@@ -1,0 +1,21 @@
+@import '../../../styles/partials/variables';
+
+.select {
+	width: 100%;
+
+	&__label {
+		font-size: 12px;
+		margin-bottom: 2px;
+		margin-right: 10px;
+	}
+}
+
+select {
+	width: 100%;
+	font-size: 14px;
+	height: 44px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	border: 1px solid $darker-gray;
+	padding-left: 5px;
+}
