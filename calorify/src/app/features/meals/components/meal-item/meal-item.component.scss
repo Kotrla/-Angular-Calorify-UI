@@ -1,12 +1,14 @@
-@import '../../../../styles/host-w-full.scss';
+@import '../../../../styles/host-w-full';
+@import '../../../../styles/spacing';
 
 .section {
-	width: 20%;
+	display: flex;
+	align-items: center;
 
 	&--column {
 		font-size: small;
 		display: flex;
 		flex-direction: column;
-		align-items: end;
+		align-items: start;
 	}
 }

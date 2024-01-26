@@ -3,8 +3,11 @@
 	[ngClass]="{ 'container-app-expanded': isExpanded, pointer: isShowExpanded }"
 	(click)="onToggleExpanded()">
 	<div class="content-app">
-		<ng-content select="[content]"></ng-content>
-
+		<div class="grid">
+			<ng-content select="[grid-content]"></ng-content>
+		</div>
+		<ng-content select="[flex-content]"></ng-content>
+		<ng-content select="[controls]"></ng-content>
 		<div *ngIf="isShowExpanded">
 			<img
 				[src]="'../../../assets/icons/' + (isExpanded ? 'chevron-up.svg' : 'chevron-down.svg')"

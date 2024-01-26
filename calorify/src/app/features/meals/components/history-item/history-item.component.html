@@ -2,10 +2,10 @@
 	[isShowExpanded]="true"
 	[isExpanded]="isExpanded"
 	(toggleExpandedEvent)="onToggleExpanded($event)">
-	<ng-container content>
-		<div>{{ historyMeal.dateCreated }}</div>
+	<ng-container grid-content>
+		<div class="section">{{ historyMeal.dateCreated }}</div>
 
-		<div>{{ historyMeal.targets?.kcal }} kcal</div>
+		<div class="section">{{ historyMeal.targets?.kcal }} kcal</div>
 	</ng-container>
 	<ng-container expanded>
 		<ng-container *ngIf="historyMeal.userMeals as userMeals">

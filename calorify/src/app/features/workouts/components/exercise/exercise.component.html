@@ -1,10 +1,10 @@
 <app-list-item>
-	<ng-container content>
-		<div>{{ exercise.name }}</div>
+	<ng-container flex-content>
+		<div class="section">{{ exercise.name }}</div>
 
-		<div>Reps: {{ exercise.reps }}</div>
+		<div class="section">Reps: {{ exercise.reps }}</div>
 
-		<div>Load: {{ exercise.load ?? 0 }} kg</div>
+		<div class="section">Load: {{ exercise.load ?? 0 }} kg</div>
 
 		<app-button
 			*ngIf="!isHistoryWorkout"

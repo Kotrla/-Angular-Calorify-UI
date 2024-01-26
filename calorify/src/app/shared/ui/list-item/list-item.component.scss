@@ -18,23 +18,23 @@
 }
 
 .content-app {
-	width: 98%;
+	width: 100%;
 	padding: $small-gap;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.section {
-	width: 20%;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+.grid {
+	display: none;
+}
 
-	&--column {
-		width: 20%;
-		font-size: small;
-	}
+.grid:not(:empty) {
+	width: 98%;
+	display: grid;
+	grid-template-columns: repeat(4, 20%);
+	gap: $gap;
+	justify-content: space-between;
 }
 
 .pointer {
