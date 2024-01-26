@@ -23,6 +23,10 @@ export class ProfileNgrxService {
 		this.store.dispatch(profileActions.loadUserData());
 	}
 
+	cancelProfileObservables(): void {
+		this.store.dispatch(profileActions.cancelProfileObservables());
+	}
+
 	updateUserData(userData: IUser): void {
 		const payload = { userData };
 

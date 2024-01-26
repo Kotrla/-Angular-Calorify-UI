@@ -10,20 +10,17 @@
 		outline: 1px solid $dark-blue;
 		box-shadow: $box-shadow;
 		background-color: $dark-blue;
+		padding: $small-gap;
 
 		&--title {
 			color: white;
-			margin-left: $small-gap;
-		}
-
-		:nth-child(2) {
-			margin-right: $small-gap;
 		}
 	}
 
 	&__content {
 		padding: $gap;
 		display: flex;
+		gap: $small-gap;
 		flex-direction: column;
 		justify-content: center;
 
@@ -31,8 +28,6 @@
 			width: 300px;
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: $small-gap;
-			margin-top: $small-gap;
 
 			&-macros {
 				width: 100px;

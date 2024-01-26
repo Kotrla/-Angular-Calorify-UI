@@ -1,23 +1,22 @@
-<div class="card">
-    <div class="content-app">
-        <div class="card__header">
-            <p class="card__header--title">{{ mealName }}</p>
+<app-card>
+	<ng-container title>{{ mealName }}</ng-container>
+	<ng-container controls>
+		<app-button
+			[width]="'30px'"
+			[height]="'30px'"
+			[imageSource]="'../../../../../assets/images/plus.png'"
+			[imageHeight]="'20px'"
+			[imageWidth]="'20px'"
+			(buttonClickEvent)="onOpenAddModal()">
+		</app-button>
+	</ng-container>
+	<ng-container content>
+		<ng-container *ngIf="meals; else noMealsFoundTemplate">
+			<app-meal-item *ngFor="let food of meals.food" [food]="food"></app-meal-item>
+		</ng-container>
 
-            <app-button [width]="'30px'" [height]="'30px'" [imageSource]="'../../../../../assets/images/plus.png'" 
-                [imageHeight]="'20px'" [imageWidth]="'20px'" (buttonClickEvent)="onOpenAddModal()">
-            </app-button>
-        </div>
-
-        <div class="card__content">
-            <ng-container *ngIf="meals else noMealsFoundTemplate">
-                <app-meal-item *ngFor="let food of meals.food" [food]="food"></app-meal-item>
-            </ng-container>
-
-            <ng-template #noMealsFoundTemplate>
-                <div class="no-meals">
-                    No Meals found.
-                </div>
-            </ng-template>
-        </div>
-    </div>
-</div>
+		<ng-template #noMealsFoundTemplate>
+			<div class="no-meals">No Meals found.</div>
+		</ng-template>
+	</ng-container>
+</app-card>

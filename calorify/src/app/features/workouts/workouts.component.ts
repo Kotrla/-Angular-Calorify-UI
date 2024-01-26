@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { WorkoutsNgrxService } from './services/workouts-ngrx.service';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 
 @Component({
 	selector: 'app-workouts',
@@ -6,4 +7,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	styleUrls: ['./workouts.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkoutsComponent {}
+export class WorkoutsComponent implements OnDestroy {
+	constructor(private workoutsNgrxService: WorkoutsNgrxService) {}
+
+	ngOnDestroy(): void {
+		this.workoutsNgrxService.cancelWorkoutsObservables();
+	}
+}

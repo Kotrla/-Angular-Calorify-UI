@@ -12,7 +12,7 @@ export class WorkoutHistoryItemComponent {
 
 	isExpanded: boolean;
 
-	onToggleExpanded(): void {
-		this.isExpanded = !this.isExpanded;
+	onToggleExpanded(isExpanded: boolean): void {
+		this.isExpanded = isExpanded;
 	}
 }

@@ -1,13 +1,13 @@
-@import '../home/home.component.scss';
+@import '../../styles/feature-page';
 
 .column {
-    display: flex;
-    flex-direction: column;
-    gap: $small-gap;
+	display: flex;
+	flex-direction: column;
+	gap: $small-gap;
 }
 
 .form-content {
-    display: flex;
-    justify-content: center;
-    gap: $section-gap;
+	display: flex;
+	justify-content: center;
+	gap: $section-gap;
 }

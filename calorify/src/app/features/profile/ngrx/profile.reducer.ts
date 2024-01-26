@@ -17,10 +17,10 @@ export const initialProfileState: IProfileState = {
 
 export const profileReducer = createReducer(
 	initialProfileState,
-	on(actions.setProfileIsLoading, (state, { payload }) => ({ ...state, isLoading: payload.isLoading })),
-	on(actions.finishLoadingUserData, (state, { payload }) => ({
+	on(actions.setProfileIsLoading, (state, { payload: { isLoading } }) => ({ ...state, isLoading })),
+	on(actions.finishLoadingUserData, (state, { payload: { userData } }) => ({
 		...state,
-		userData: payload.userData,
+		userData,
 		isLoading: false,
 	})),
 	on(actions.cancelProfileObservables, state => ({ ...state, isLoading: true, userData: null }))

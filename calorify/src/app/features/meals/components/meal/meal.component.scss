@@ -1,12 +1,3 @@
-@import '../../../../styles/partials/variables';
-@import '../../../home/components/daily-summary/daily-summary.component.scss';
-
-.card {
-	&__content {
-		gap: $gap;
-	}
-}
-
 .no-meals,
 .no-exercises {
 	width: 100%;

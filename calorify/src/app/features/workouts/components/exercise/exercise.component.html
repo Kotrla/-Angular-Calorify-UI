@@ -1,12 +1,10 @@
-<div class="container-app">
-	<div class="content-app">
-		<div class="section">
-			{{ exercise.name }}
-		</div>
+<app-list-item>
+	<ng-container content>
+		<div>{{ exercise.name }}</div>
 
-		<div class="section">Reps: {{ exercise.reps }}</div>
+		<div>Reps: {{ exercise.reps }}</div>
 
-		<div class="section">Load: {{ exercise.load ?? 0 }} kg</div>
+		<div>Load: {{ exercise.load ?? 0 }} kg</div>
 
 		<app-button
 			*ngIf="!isHistoryWorkout"
@@ -17,5 +15,5 @@
 			[imageWidth]="'20px'"
 			[buttonColor]="'#EF476F'">
 		</app-button>
-	</div>
-</div>
+	</ng-container>
+</app-list-item>

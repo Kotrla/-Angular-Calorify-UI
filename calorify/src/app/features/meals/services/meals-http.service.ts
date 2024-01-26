@@ -12,6 +12,12 @@ const API = environment.api;
 export class MealsHttpService {
 	constructor(private http: HttpClient) {}
 
+	getAllMeals(): Observable<IMealsResponse> {
+		const getAllMeals = API + '/meals/userMeals';
+
+		return this.http.get<IMealsResponse>(getAllMeals);
+	}
+
 	getDailyMeals(): Observable<IMealsResponse> {
 		const getDailyMealsUrl = API + '/meals/';
 

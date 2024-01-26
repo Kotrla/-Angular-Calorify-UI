@@ -1,0 +1,59 @@
+@import '../../../styles/svg.scss';
+@import '../../../styles/partials/variables';
+
+:host {
+	width: 100%;
+}
+
+.container-app {
+	height: 60px;
+	min-width: 620px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $light-light-gray;
+	border-radius: $small-gap;
+	border: 1px solid darken($light-gray, 15%);
+	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.content-app {
+	width: 98%;
+	padding: $small-gap;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.section {
+	width: 20%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	&--column {
+		width: 20%;
+		font-size: small;
+	}
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.content-expanded {
+	display: flex;
+	flex-direction: column;
+	gap: $small-gap;
+	background-color: $darker-gray;
+}
+
+.container-expanded {
+	height: fit-content;
+	border-radius: 0px 0px $small-gap $small-gap;
+	background-color: $darker-gray;
+}
+
+.container-app-expanded {
+	border-radius: $small-gap $small-gap 0px 0px;
+}

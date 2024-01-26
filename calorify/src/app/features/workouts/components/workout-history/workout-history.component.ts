@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WorkoutsNgrxService } from '../../services/workouts-ngrx.service';
 import { IWorkout, WorkoutsRoutes, WorkoutsStoreKey } from '../../ts/workouts.model';
 
@@ -11,7 +11,7 @@ import { IWorkout, WorkoutsRoutes, WorkoutsStoreKey } from '../../ts/workouts.mo
 	styleUrls: ['./workout-history.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkoutHistoryComponent implements OnInit, OnDestroy {
+export class WorkoutHistoryComponent implements OnInit {
 	allWorkouts$: Observable<IWorkout[]>;
 	isLoadingHistory$: Observable<boolean>;
 
@@ -30,10 +30,6 @@ export class WorkoutHistoryComponent implements OnInit, OnDestroy {
 		this.allWorkouts$ = this.workoutsNgrxService.selectFromWorkoutsNgrxStore<IWorkout[]>(
 			WorkoutsStoreKey.ALL_WORKOUTS
 		);
-	}
-
-	ngOnDestroy(): void {
-		this.workoutsNgrxService.cancelWorkoutsObservables();
 	}
 
 	onGoToDaily(): void {

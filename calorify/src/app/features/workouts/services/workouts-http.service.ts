@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { IExercise } from '../ts/workouts.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { IExercise } from '../ts/workouts.model';
 
 const API = environment.api + '/workout';
 

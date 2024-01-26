@@ -13,34 +13,30 @@
 				</app-button>
 			</div>
 
-			<div class="card">
-				<div class="content-app no-gap">
-					<div class="card__header">
-						<p class="card__header--title">Workout</p>
+			<app-card>
+				<ng-container title>Workout</ng-container>
+				<ng-container controls>
+					<app-button
+						[width]="'30px'"
+						[height]="'30px'"
+						[imageSource]="'../../../../../assets/images/plus.png'"
+						[imageHeight]="'20px'"
+						[imageWidth]="'20px'"
+						(buttonClickEvent)="onOpenAddModal()">
+					</app-button>
+				</ng-container>
+				<ng-container content>
+					<ng-container *ngIf="dailyWorkout$ | async as dailyWorkout; else noExercisesFoundTemplate">
+						<div *ngFor="let exercise of dailyWorkout.exercises">
+							<app-exercise [exercise]="exercise"></app-exercise>
+						</div>
+					</ng-container>
 
-						<app-button
-							[width]="'30px'"
-							[height]="'30px'"
-							[imageSource]="'../../../../../assets/images/plus.png'"
-							[imageHeight]="'20px'"
-							[imageWidth]="'20px'"
-							(buttonClickEvent)="onOpenAddModal()">
-						</app-button>
-					</div>
-
-					<div class="card__content">
-						<ng-container *ngIf="dailyWorkout$ | async as dailyWorkout; else noExercisesFoundTemplate">
-							<div *ngFor="let exercise of dailyWorkout.exercises">
-								<app-exercise [exercise]="exercise"></app-exercise>
-							</div>
-						</ng-container>
-
-						<ng-template #noExercisesFoundTemplate>
-							<div class="no-exercises">No Exercises found.</div>
-						</ng-template>
-					</div>
-				</div>
-			</div>
+					<ng-template #noExercisesFoundTemplate>
+						<div class="no-exercises">No Exercises found.</div>
+					</ng-template>
+				</ng-container>
+			</app-card>
 		</ng-template>
 	</div>
 </div>

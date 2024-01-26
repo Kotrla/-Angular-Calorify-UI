@@ -24,9 +24,9 @@ export class ProfileEffects {
 	updateUserData$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(profileActions.updateUserData),
-			switchMap(({ payload }) =>
+			switchMap(({ payload: { userData } }) =>
 				this.profileHttpService
-					.updateUserData(payload.userData)
+					.updateUserData(userData)
 					.pipe(takeUntil(this.actions$.pipe(ofType(profileActions.cancelProfileObservables))))
 			),
 			map(() => profileActions.loadUserData())
@@ -36,9 +36,9 @@ export class ProfileEffects {
 	updateUserMacros$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(profileActions.updateUserMacros),
-			switchMap(({ payload }) =>
+			switchMap(({ payload: { userData } }) =>
 				this.profileHttpService
-					.updateUserMacros(payload.userData)
+					.updateUserMacros(userData)
 					.pipe(takeUntil(this.actions$.pipe(ofType(profileActions.cancelProfileObservables))))
 			),
 			map(() => profileActions.loadUserData())

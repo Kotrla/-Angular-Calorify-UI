@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { IUser, IUserTargets } from '../ts/home.model';
+import { IUser, IUserTarget } from '../ts/home.model';
 
 import * as actions from './home.actions';
 
@@ -8,8 +8,8 @@ export const homeFeatureKey = 'home';
 export interface IHomeState {
 	isLoading: boolean;
 	userData: IUser | null;
-	targets: IUserTargets[];
-	daily: IUserTargets | null;
+	targets: IUserTarget[];
+	daily: IUserTarget | null;
 }
 
 export const initialHomeState: IHomeState = {
@@ -21,17 +21,17 @@ export const initialHomeState: IHomeState = {
 
 export const homeReducer = createReducer(
 	initialHomeState,
-	on(actions.setHomeIsLoading, (state, { payload }) => ({
+	on(actions.setHomeIsLoading, (state, { payload: { isLoading } }) => ({
 		...state,
-		isLoading: payload.isLoading,
+		isLoading,
 	})),
-	on(actions.finishLoadingUserDaily, (state, { payload }) => ({
+	on(actions.finishLoadingUserDaily, (state, { payload: { daily } }) => ({
 		...state,
-		daily: payload.daily,
+		daily,
 	})),
-	on(actions.finishLoadingUserTargets, (state, { payload }) => ({
+	on(actions.finishLoadingUserTargets, (state, { payload: { targets } }) => ({
 		...state,
-		targets: payload.targets,
+		targets,
 	})),
 	on(actions.cancelHomeObservables, state => ({
 		...state,
@@ -39,9 +39,9 @@ export const homeReducer = createReducer(
 		daily: null,
 		targets: [],
 	})),
-	on(actions.finishLoadingUser, (state, { payload }) => ({
+	on(actions.finishLoadingUser, (state, { payload: { userData } }) => ({
 		...state,
-		userData: payload.userData,
+		userData,
 		isLoading: false,
 	}))
 );

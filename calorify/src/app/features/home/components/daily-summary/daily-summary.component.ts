@@ -1,6 +1,6 @@
 import { IUser } from '../../ts/home.model';
 import { IUserNeeds } from '../../ts/home.model';
-import { IUserTargets } from '../../ts/home.model';
+import { IUserTarget } from '../../ts/home.model';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } f
 })
 export class DailySummaryComponent implements OnChanges {
 	@Input() userDetails: IUser | null;
-	@Input() userDaily: IUserTargets | null;
+	@Input() userDaily: IUserTarget | null;
 
 	userTargets: IUserNeeds;
 

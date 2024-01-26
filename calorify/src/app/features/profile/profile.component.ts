@@ -5,7 +5,7 @@ import { ProfileNgrxService } from './services/profile-ngrx.service';
 import { ProfileFormService } from './services/profile-form.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { IUser, IUserForm, ProfileStoreKey } from './ts/profile.model';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
 @UntilDestroy()
 @Component({
@@ -14,7 +14,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 	styleUrls: ['./profile.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 	goalSelectData: ISelectData[];
 	genderSelectData: ISelectData[];
 	userDataForm: FormGroup<IUserForm>;
@@ -34,6 +34,10 @@ export class ProfileComponent implements OnInit {
 
 		this.setSelectData();
 		this.loadUserData();
+	}
+
+	ngOnDestroy(): void {
+		this.profileNgrxService.cancelProfileObservables();
 	}
 
 	loadUserData(): void {

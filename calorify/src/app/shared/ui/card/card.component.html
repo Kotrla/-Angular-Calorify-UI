@@ -1,0 +1,14 @@
+<div class="card">
+	<div class="content-app">
+		<div class="card__header">
+			<p class="card__header--title">
+				<ng-content select="[title]"></ng-content>
+			</p>
+			<ng-content select="[controls]"></ng-content>
+		</div>
+
+		<div class="card__content">
+			<ng-content select="[content]"></ng-content>
+		</div>
+	</div>
+</div>

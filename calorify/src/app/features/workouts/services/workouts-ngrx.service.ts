@@ -1,7 +1,7 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { IAppState } from '../../../core/state/state';
-import { Observable } from 'rxjs';
 import { WorkoutsStoreKey, IExercise } from '../ts/workouts.model';
 
 import * as workoutsActions from '../ngrx/workouts.actions';

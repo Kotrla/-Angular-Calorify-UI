@@ -1,4 +1,4 @@
-import { IUserTargets } from '../../ts/home.model';
+import { IUserTarget } from '../../ts/home.model';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WeeklySummaryComponent {
-	@Input() userTargets: IUserTargets[] | null;
+	@Input() userTargets: IUserTarget[] | null;
 
 	constructor() {}
 }

@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { IAppState } from '../../../core/state/state';
 import { MealsStoreKey } from '../ts/meals.model';
+import { IAppState } from '../../../core/state/state';
 
 import * as mealsActions from '../ngrx/meals.actions';
 import * as mealsSelectors from '../ngrx/meals.selectors';
@@ -21,8 +21,16 @@ export class MealsNgrxService {
 		this.store.dispatch(mealsActions.loadDailyMeals());
 	}
 
+	loadAllMeals(): void {
+		this.store.dispatch(mealsActions.loadAllMeals());
+	}
+
 	loadFoodList(): void {
 		this.store.dispatch(mealsActions.loadFoodList());
+	}
+
+	cancelMealsObservables(): void {
+		this.store.dispatch(mealsActions.cancelMealsObservables());
 	}
 
 	setMealsIsLoading(isLoading: boolean): void {

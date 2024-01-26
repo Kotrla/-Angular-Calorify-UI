@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
+import { MealsService } from '../services/meals.service';
+import { IFood, MealsStoreKey } from '../ts/meals.model';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { IMeal, IFood, MealsStoreKey } from '../ts/meals.model';
-import { map, switchMap, takeUntil, withLatestFrom } from 'rxjs';
+import { forkJoin, map, switchMap, takeUntil, withLatestFrom } from 'rxjs';
 import { MealsHttpService } from '../services/meals-http.service';
 import { MealsNgrxService } from '../services/meals-ngrx.service';
 
 import * as mealsActions from './meals.actions';
+import { HomeHttpService } from '../../home/services/home-http.service';
+import { IUserTarget } from '../../home/ts/home.model';
 
 @Injectable()
 export class MealsEffects {
 	constructor(
 		private actions$: Actions,
+		private mealsService: MealsService,
+		private homeHttpService: HomeHttpService,
 		private mealsHttpService: MealsHttpService,
 		private mealsNgrxService: MealsNgrxService
 	) {}
@@ -23,30 +28,30 @@ export class MealsEffects {
 					.getDailyMeals()
 					.pipe(takeUntil(this.actions$.pipe(ofType(mealsActions.cancelMealsObservables))))
 			),
-			map(response => {
-				const { breakfast, lunch, dinner } = response.meals.reduce(
-					(result, meal) => {
-						const { meal: mealName } = meal;
-
-						switch (mealName) {
-							case 'Breakfast':
-								return { ...result, breakfast: meal };
-							case 'Lunch':
-								return { ...result, lunch: meal };
-							case 'Dinner':
-								return { ...result, dinner: meal };
-							default:
-								return result;
-						}
-					},
-					{ breakfast: null, lunch: null, dinner: null } as unknown as {
-						breakfast: IMeal;
-						lunch: IMeal;
-						dinner: IMeal;
-					}
-				);
+			map(({ meals }) => {
+				const { breakfast, lunch, dinner } = this.mealsService.getMealsByCategory(meals);
 
 				return mealsActions.finishLoadingDailyMeals({ payload: { breakfast, lunch, dinner } });
+			})
+		)
+	);
+
+	loadAllMeals$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(mealsActions.loadAllMeals),
+			switchMap(() =>
+				forkJoin([this.mealsHttpService.getAllMeals(), this.homeHttpService.getUserTargets()]).pipe(
+					takeUntil(this.actions$.pipe(ofType(mealsActions.cancelMealsObservables)))
+				)
+			),
+			map(([{ meals }, { targets }]) => {
+				const targetsRecord: Record<string, IUserTarget> = targets.reduce(
+					(acc, target) => ({ ...acc, [target.dateCreated]: target }),
+					{}
+				);
+				const historyMeals = this.mealsService.getAllMealsByDate(meals, targetsRecord);
+
+				return mealsActions.finishLoadingHistoryMeals({ payload: { historyMeals } });
 			})
 		)
 	);
@@ -59,11 +64,7 @@ export class MealsEffects {
 					.getFoodList()
 					.pipe(takeUntil(this.actions$.pipe(ofType(mealsActions.cancelMealsObservables))))
 			),
-			map(response => {
-				const { foods } = response;
-
-				return mealsActions.finishLoadingFoodList({ payload: { foods } });
-			})
+			map(({ foods }) => mealsActions.finishLoadingFoodList({ payload: { foods } }))
 		)
 	);
 

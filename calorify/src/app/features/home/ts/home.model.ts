@@ -31,11 +31,11 @@ export interface IUser {
 }
 
 export interface IDailyResponse {
-	daily: IUserTargets;
+	daily: IUserTarget;
 }
 
-export interface IUserTargetsResponse {
-	targets: IUserTargets[];
+export interface IUserTargetResponse {
+	targets: IUserTarget[];
 }
 
 export interface IUserResponse {
@@ -49,7 +49,7 @@ export interface IUserNeeds {
 	kcal: number;
 }
 
-export interface IUserTargets {
+export interface IUserTarget {
 	user: string;
 	protein: number;
 	carbs: number;

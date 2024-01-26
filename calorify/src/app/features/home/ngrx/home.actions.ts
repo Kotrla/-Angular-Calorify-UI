@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { IUser, IUserTargets } from '../ts/home.model';
+import { IUser, IUserTarget } from '../ts/home.model';
 
 export const loadUserDetails = createAction('[Home] Load User Details');
 
@@ -21,10 +21,10 @@ export const finishLoadingUser = createAction(
 
 export const finishLoadingUserTargets = createAction(
 	'[Home] Finish Loading User Targets',
-	props<{ payload: { targets: IUserTargets[] } }>()
+	props<{ payload: { targets: IUserTarget[] } }>()
 );
 
 export const finishLoadingUserDaily = createAction(
 	'[Home] Finish Loading User Daily',
-	props<{ payload: { daily: IUserTargets } }>()
+	props<{ payload: { daily: IUserTarget } }>()
 );

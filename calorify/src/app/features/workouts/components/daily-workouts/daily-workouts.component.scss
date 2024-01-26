@@ -1,6 +1,2 @@
-@import '../../../meals/meals.component.scss';
-@import '../../../meals/components/meal/meal.component.scss';
-
-.no-gap {
-	gap: 0;
-}
+@import '../../../../styles/feature-page';
+@import '../../../meals/components/meal/meal.component';

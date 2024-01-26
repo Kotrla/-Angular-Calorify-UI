@@ -21,19 +21,18 @@ export const initialWorkoutsState: IWorkoutsState = {
 
 export const workoutsReducer = createReducer(
 	initialWorkoutsState,
-	on(workoutsActions.setWorkoutsIsLoading, (state, { payload }) => ({
+	on(workoutsActions.setWorkoutsIsLoading, (state, { payload: { isLoading } }) => ({
 		...state,
-		isLoading: payload.isLoading,
+		isLoading,
 	})),
-	on(workoutsActions.finishLoadingDailyWorkouts, (state, { payload }) => ({
+	on(workoutsActions.finishLoadingDailyWorkouts, (state, { payload: { workout } }) => ({
 		...state,
-		dailyUserWorkout: payload.workout,
+		dailyUserWorkout: workout,
 		isLoading: false,
 	})),
-	on(workoutsActions.finishLoadingAllWorkouts, (state, { payload }) => ({
+	on(workoutsActions.finishLoadingAllWorkouts, (state, { payload: { workouts } }) => ({
 		...state,
-		allUserWorkouts: payload.workouts,
-		isLoading: false,
+		allUserWorkouts: workouts,
 		isLoadingHistory: false,
 	})),
 	on(workoutsActions.cancelWorkoutsObservables, state => ({

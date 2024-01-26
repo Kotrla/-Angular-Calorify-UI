@@ -1,0 +1,29 @@
+<app-list-item
+	[isShowExpanded]="true"
+	[isExpanded]="isExpanded"
+	(toggleExpandedEvent)="onToggleExpanded($event)">
+	<ng-container content>
+		<div>{{ historyMeal.dateCreated }}</div>
+
+		<div>{{ historyMeal.targets?.kcal }} kcal</div>
+	</ng-container>
+	<ng-container expanded>
+		<ng-container *ngIf="historyMeal.userMeals as userMeals">
+			<ng-container *ngIf="userMeals.breakfast as breakfast">
+				<div class="meal-title">{{ breakfast.meal }}:</div>
+				<app-meal-item *ngFor="let foodItem of breakfast.food" [food]="foodItem" [isHistoryItem]="true">
+				</app-meal-item>
+			</ng-container>
+			<ng-container *ngIf="userMeals.lunch as lunch">
+				<div class="meal-title">{{ lunch.meal }}:</div>
+				<app-meal-item *ngFor="let foodItem of lunch.food" [food]="foodItem" [isHistoryItem]="true">
+				</app-meal-item>
+			</ng-container>
+			<ng-container *ngIf="userMeals.dinner as dinner">
+				<div class="meal-title">{{ dinner.meal }}:</div>
+				<app-meal-item *ngFor="let foodItem of dinner.food" [food]="foodItem" [isHistoryItem]="true">
+				</app-meal-item>
+			</ng-container>
+		</ng-container>
+	</ng-container>
+</app-list-item>

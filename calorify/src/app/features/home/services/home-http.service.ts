@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { IUserResponse, IUserTargetsResponse, IDailyResponse } from '../ts/home.model';
+import { IUserResponse, IUserTargetResponse, IDailyResponse } from '../ts/home.model';
 
 const API = environment.api;
 
@@ -18,10 +18,10 @@ export class HomeHttpService {
 		return this.http.get<IUserResponse>(getUserUrl);
 	}
 
-	getUserTargets(): Observable<IUserTargetsResponse> {
+	getUserTargets(): Observable<IUserTargetResponse> {
 		const getUserTargetsUrl = API + '/target/';
 
-		return this.http.get<IUserTargetsResponse>(getUserTargetsUrl);
+		return this.http.get<IUserTargetResponse>(getUserTargetsUrl);
 	}
 
 	getUserDaily(): Observable<IDailyResponse> {

@@ -1,0 +1,30 @@
+<div class="container-app">
+	<div class="content-app">
+		<ng-container *ngIf="isLoadingHistory$ | async; else historyTemplate"> Loading... </ng-container>
+
+		<ng-template #historyTemplate>
+			<div class="controls">
+				<app-button
+					[buttonText]="'Daily'"
+					[buttonColor]="'#474677'"
+					[borderColor]="'#474677'"
+					[width]="'100px'"
+					(buttonClickEvent)="onGoToDaily()">
+				</app-button>
+			</div>
+			<app-card>
+				<ng-container title>Meals History</ng-container>
+				<ng-container content>
+					<ng-container *ngIf="historyMeals$ | async as historyMeals; else noMealsFoundTemplate">
+						<app-history-item *ngFor="let historyMeal of historyMeals" [historyMeal]="historyMeal">
+						</app-history-item>
+					</ng-container>
+
+					<ng-template #noMealsFoundTemplate>
+						<div class="no-meals">No Meals found.</div>
+					</ng-template>
+				</ng-container>
+			</app-card>
+		</ng-template>
+	</div>
+</div>

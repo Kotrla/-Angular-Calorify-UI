@@ -29,11 +29,7 @@ export class HomeEffects {
 					.getUserTargets()
 					.pipe(takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables))))
 			),
-			map(response => {
-				const targets = response.targets;
-
-				return homeActions.finishLoadingUserTargets({ payload: { targets } });
-			})
+			map(({ targets }) => homeActions.finishLoadingUserTargets({ payload: { targets } }))
 		)
 	);
 
@@ -45,11 +41,7 @@ export class HomeEffects {
 					.getUserDaily()
 					.pipe(takeUntil(this.actions$.pipe(ofType(homeActions.cancelHomeObservables))))
 			),
-			map(response => {
-				const daily = response.daily;
-
-				return homeActions.finishLoadingUserDaily({ payload: { daily } });
-			})
+			map(({ daily }) => homeActions.finishLoadingUserDaily({ payload: { daily } }))
 		)
 	);
 }

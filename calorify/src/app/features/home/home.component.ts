@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { HomeNgrxService } from './services/home-ngrx.service';
-import { IUser, IUserTargets, HomeStoreKey } from './ts/home.model';
+import { IUser, IUserTarget, HomeStoreKey } from './ts/home.model';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
@@ -12,8 +12,8 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 export class HomeComponent implements OnInit, OnDestroy {
 	userDetails$: Observable<IUser>;
 	isLoading$: Observable<boolean>;
-	userDaily$: Observable<IUserTargets>;
-	userTargets$: Observable<IUserTargets[]>;
+	userDaily$: Observable<IUserTarget>;
+	userTargets$: Observable<IUserTarget[]>;
 
 	constructor(private homeNgrxService: HomeNgrxService) {}
 
@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 		this.isLoading$ = this.homeNgrxService.selectFromHomeNgrxStore<boolean>(HomeStoreKey.IS_LOADING);
 		this.userDetails$ = this.homeNgrxService.selectFromHomeNgrxStore<IUser>(HomeStoreKey.USER_DETAILS);
-		this.userDaily$ = this.homeNgrxService.selectFromHomeNgrxStore<IUserTargets>(HomeStoreKey.USER_DAILY);
-		this.userTargets$ = this.homeNgrxService.selectFromHomeNgrxStore<IUserTargets[]>(
+		this.userDaily$ = this.homeNgrxService.selectFromHomeNgrxStore<IUserTarget>(HomeStoreKey.USER_DAILY);
+		this.userTargets$ = this.homeNgrxService.selectFromHomeNgrxStore<IUserTarget[]>(
 			HomeStoreKey.USER_TARGETS
 		);
 	}

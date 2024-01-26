@@ -17,11 +17,7 @@ export class WorkoutsEffects {
 					.getDailyWorkouts()
 					.pipe(takeUntil(this.actions$.pipe(ofType(workoutsActions.cancelWorkoutsObservables))))
 			),
-			map(response => {
-				const { workout } = response;
-
-				return workoutsActions.finishLoadingDailyWorkouts({ payload: { workout } });
-			})
+			map(({ workout }) => workoutsActions.finishLoadingDailyWorkouts({ payload: { workout } }))
 		)
 	);
 
@@ -33,24 +29,18 @@ export class WorkoutsEffects {
 					.getAllWorkouts()
 					.pipe(takeUntil(this.actions$.pipe(ofType(workoutsActions.cancelWorkoutsObservables))))
 			),
-			map(response => {
-				const { workouts } = response;
-
-				return workoutsActions.finishLoadingAllWorkouts({ payload: { workouts } });
-			})
+			map(({ workouts }) => workoutsActions.finishLoadingAllWorkouts({ payload: { workouts } }))
 		)
 	);
 
 	addExercise$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(workoutsActions.addExercise),
-			switchMap(action => {
-				const { exercise } = action.payload;
-
-				return this.workoutsHttpService
+			switchMap(({ payload: { exercise } }) =>
+				this.workoutsHttpService
 					.addExercise(exercise)
-					.pipe(takeUntil(this.actions$.pipe(ofType(workoutsActions.cancelWorkoutsObservables))));
-			}),
+					.pipe(takeUntil(this.actions$.pipe(ofType(workoutsActions.cancelWorkoutsObservables))))
+			),
 			map(() => workoutsActions.loadDailyWorkouts())
 		)
 	);

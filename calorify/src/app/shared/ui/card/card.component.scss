@@ -1,0 +1,28 @@
+@import '../../../styles/partials/card';
+@import '../../../styles/partials/variables';
+
+.card {
+	&__header {
+		height: 40px;
+		padding: $small-gap;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		outline: 1px solid $dark-blue;
+		box-shadow: $box-shadow;
+		background-color: $dark-blue;
+
+		&--title {
+			color: white;
+		}
+	}
+
+	&__content {
+		padding: $gap;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: $small-gap;
+		overflow-x: auto;
+	}
+}
