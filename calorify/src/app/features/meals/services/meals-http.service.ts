@@ -33,6 +33,6 @@ export class MealsHttpService {
 	addFoodToMeal(meal: string, food: IFood, quantity: number): Observable<any> {
 		const addFoodToMealUrl = API + '/meals/add/';
 
-		return this.http.post<any>(addFoodToMealUrl, { meal, food, quantity });
+		return this.http.post(addFoodToMealUrl, { meal, food, quantity });
 	}
 }

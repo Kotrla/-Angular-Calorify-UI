@@ -16,4 +16,23 @@
 		border: 1px solid $darker-gray;
 		padding-left: 5px;
 	}
+
+	input.ng-dirty.ng-invalid {
+		color: $form-err-msg;
+		border: 1px solid $form-err-msg;
+	}
+
+	&__disabled {
+		background-color: $light-gray;
+		cursor: default;
+	}
+}
+
+::ng-deep .field-error {
+	font-size: 14px;
+	color: $form-err-msg;
+
+	span {
+		color: $form-err-msg;
+	}
 }
