@@ -24,7 +24,7 @@ export class ProfileFormService {
 			goal: [goal, [Validators.required]],
 			date: [date, [Validators.required]],
 			email: [email, [Validators.maxLength(25), Validators.email, Validators.required]],
-			password: [password, [Validators.maxLength(15), Validators.minLength(3), Validators.required]],
+			password: [password, [Validators.required]],
 			weight: [weight, [Validators.required, Validators.min(0)]],
 			height: [height, [Validators.required, Validators.min(0)]],
 			protein: [protein, [Validators.required, Validators.min(0)]],

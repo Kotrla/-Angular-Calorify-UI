@@ -12,12 +12,32 @@
 							[inputType]="'string'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('firstName')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('firstName')?.hasError('required')">
+										First name is required.
+									</span>
+									<span *ngIf="userDataForm.get('firstName')?.hasError('maxlength')">
+										Maximum length is 14 characters.
+									</span>
+								</div>
+							</ng-container>
 						</app-input>
 						<app-input
 							[inputLabel]="'Last name'"
 							[inputType]="'string'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('lastName')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('lastName')?.hasError('required')">
+										Last name is required.
+									</span>
+									<span *ngIf="userDataForm.get('lastName')?.hasError('maxlength')">
+										Maximum length is 14 characters.
+									</span>
+								</div>
+							</ng-container>
 						</app-input>
 						<app-input
 							[inputLabel]="'Date'"
@@ -50,12 +70,24 @@
 							[inputType]="'number'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('weight')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('weight')?.hasError('required')"> Weight is required. </span>
+									<span *ngIf="userDataForm.get('weight')?.hasError('min')"> Minimum weight is 0. </span>
+								</div>
+							</ng-container>
 						</app-input>
 						<app-input
 							[inputLabel]="'Height'"
 							[inputType]="'number'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('height')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('height')?.hasError('required')"> Height is required. </span>
+									<span *ngIf="userDataForm.get('height')?.hasError('min')"> Minimum height is 0. </span>
+								</div>
+							</ng-container>
 						</app-input>
 					</div>
 					<div class="column">
@@ -65,24 +97,54 @@
 							[inputType]="'number'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('kcal')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('kcal')?.hasError('required')"> Calories is required. </span>
+									<span *ngIf="userDataForm.get('kcal')?.hasError('min')"> Minimum calories is 0. </span>
+								</div>
+							</ng-container>
 						</app-input>
 						<app-input
 							[inputLabel]="'Protein'"
 							[inputType]="'number'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('protein')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('protein')?.hasError('required')">
+										Protein is required.
+									</span>
+									<span *ngIf="userDataForm.get('protein')?.hasError('min')"> Minimum protein is 0. </span>
+								</div>
+							</ng-container>
 						</app-input>
 						<app-input
 							[inputLabel]="'Carbohydrates'"
 							[inputType]="'number'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('carbs')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('carbs')?.hasError('required')">
+										Carbohydrates are required.
+									</span>
+									<span *ngIf="userDataForm.get('carbs')?.hasError('min')">
+										Minimum carbohydrates is 0.
+									</span>
+								</div>
+							</ng-container>
 						</app-input>
 						<app-input
 							[inputLabel]="'Fats'"
 							[inputType]="'number'"
 							[inputWidth]="'400px'"
 							[passedFormControl]="userDataForm.get('fats')">
+							<ng-container slot="error-message">
+								<div class="field-error">
+									<span *ngIf="userDataForm.get('fats')?.hasError('required')"> Fats are required. </span>
+									<span *ngIf="userDataForm.get('fats')?.hasError('min')"> Minimum fats are 0. </span>
+								</div>
+							</ng-container>
 						</app-input>
 					</div>
 
@@ -91,6 +153,7 @@
 						[buttonColor]="'#474677'"
 						[borderColor]="'#474677'"
 						[width]="'100px'"
+						[isDisabled]="userDataForm.pristine || userDataForm.invalid"
 						(buttonClickEvent)="onSaveUserData()">
 					</app-button>
 				</div>

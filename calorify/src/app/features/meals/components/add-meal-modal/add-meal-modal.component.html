@@ -1,15 +1,38 @@
-
 <div class="modal-header">
-    <h5 class="modal-title">Add food to {{ mealName }}</h5>
+	<h5 class="modal-title">Add food to {{ mealName }}</h5>
 </div>
 
 <div class="modal-body">
-    <app-select [selectData]="selectMeals$ | async" [selectLabel]="'Meals'" [selectWidth]="'200px'" [passedFormControl]="selectFormControl" [bottomSpace]="true"></app-select>
+	<app-select
+		[selectData]="selectMeals$ | async"
+		[selectLabel]="'Meals'"
+		[selectWidth]="'200px'"
+		[passedFormControl]="selectFormControl"
+		[bottomSpace]="true"></app-select>
 
-    <app-input [inputLabel]="'Quantity (g)'" [inputType]="'number'" [inputWidth]="'200px'" [passedFormControl]="foodQuantityControl"></app-input>
+	<app-input
+		[inputLabel]="'Quantity (g)'"
+		[inputType]="'number'"
+		[inputWidth]="'200px'"
+		[passedFormControl]="foodQuantityControl">
+		<ng-container slot="error-message">
+			<div class="field-error">
+				<span *ngIf="foodQuantityControl.hasError('required')"> Quantity is required. </span>
+				<span *ngIf="foodQuantityControl.hasError('min')"> Minimum quantity is 1. </span>
+			</div>
+		</ng-container>
+	</app-input>
 </div>
 
 <div class="modal-footer">
-    <app-button [buttonText]="'Add'" [width]="'60px'" (buttonClickEvent)="onAddFoodToMeal()"></app-button>
-    <app-button [buttonText]="'Cancel'" [width]="'100px'" [buttonColor]="'#EF476F'" (buttonClickEvent)="close()"></app-button>
+	<app-button
+		[buttonText]="'Add'"
+		[width]="'60px'"
+		[isDisabled]="foodQuantityControl.invalid"
+		(buttonClickEvent)="onAddFoodToMeal()"></app-button>
+	<app-button
+		[buttonText]="'Cancel'"
+		[width]="'100px'"
+		[buttonColor]="'#EF476F'"
+		(buttonClickEvent)="close()"></app-button>
 </div>

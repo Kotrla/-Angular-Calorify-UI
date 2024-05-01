@@ -2,8 +2,11 @@
 	<div class="input__label" *ngIf="showLabel">{{ inputLabel }}:</div>
 
 	<input
+		[ngClass]="{ input__disabled: isDisabled }"
 		[readonly]="isDisabled"
 		[type]="inputType"
 		[placeholder]="inputPlaceholder"
 		[formControl]="$any(passedFormControl)" />
+
+	<ng-content select="[slot=error-message]"></ng-content>
 </div>

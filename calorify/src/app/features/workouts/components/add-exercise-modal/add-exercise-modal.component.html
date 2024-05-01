@@ -9,6 +9,12 @@
 		[inputWidth]="'200px'"
 		[bottomSpace]="true"
 		[passedFormControl]="getNameFormControl">
+		<ng-container slot="error-message">
+			<div class="field-error">
+				<span *ngIf="getNameFormControl.hasError('required')"> Exercise name is required. </span>
+				<span *ngIf="getNameFormControl.hasError('maxlength')"> Maximum length is 20. </span>
+			</div>
+		</ng-container>
 	</app-input>
 	<app-input
 		[inputLabel]="'Reps'"
@@ -16,24 +22,38 @@
 		[inputWidth]="'200px'"
 		[bottomSpace]="true"
 		[passedFormControl]="getRepsFormControl">
+		<ng-container slot="error-message">
+			<div class="field-error">
+				<span *ngIf="getRepsFormControl.hasError('required')"> Reps are required. </span>
+				<span *ngIf="getRepsFormControl.hasError('min')"> Minimum is 0. </span>
+				<span *ngIf="getRepsFormControl.hasError('max')"> Maximum is 200. </span>
+			</div>
+		</ng-container>
 	</app-input>
 	<app-input
 		[inputLabel]="'Load (kg)'"
 		[inputType]="'number'"
 		[inputWidth]="'200px'"
 		[passedFormControl]="getLoadFormControl">
+		<ng-container slot="error-message">
+			<div class="field-error">
+				<span *ngIf="getLoadFormControl.hasError('required')"> Load is required. </span>
+				<span *ngIf="getLoadFormControl.hasError('min')"> Minimum is 0. </span>
+				<span *ngIf="getLoadFormControl.hasError('max')"> Maximum is 200. </span>
+			</div>
+		</ng-container>
 	</app-input>
 </div>
 
 <div class="modal-footer">
 	<app-button
+		[buttonText]="'Add'"
+		[width]="'60px'"
+		(buttonClickEvent)="onAddExercise()"
+		[isDisabled]="exerciseForm.invalid"></app-button>
+	<app-button
 		[buttonText]="'Cancel'"
 		[width]="'100px'"
 		[buttonColor]="'#EF476F'"
 		(buttonClickEvent)="close()"></app-button>
-	<app-button
-		[buttonText]="'Add'"
-		[width]="'60px'"
-		(buttonClickEvent)="onAddExercise()"
-		[isDisabled]="exerciseForm.status !== 'VALID'"></app-button>
 </div>

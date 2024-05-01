@@ -1,5 +1,5 @@
 import { Observable, map, tap } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { ISelectData } from '../../../../core/ts/app.model';
 import { IFood, MealsStoreKey } from '../../ts/meals.model';
@@ -16,7 +16,7 @@ export class AddMealModalComponent implements OnInit {
 	mealName: string;
 
 	selectFormControl: FormControl = new FormControl('');
-	foodQuantityControl: FormControl = new FormControl(100);
+	foodQuantityControl: FormControl = new FormControl(100, [Validators.required, Validators.min(1)]);
 
 	selectMeals$: Observable<ISelectData[]>;
 

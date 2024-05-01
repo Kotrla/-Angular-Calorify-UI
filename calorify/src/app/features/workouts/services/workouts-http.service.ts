@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { IExercise } from '../ts/workouts.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { IAllWorkoutsResponse, IExercise, IWorkoutResponse } from '../ts/workouts.model';
 
 const API = environment.api + '/workout';
 
@@ -12,21 +12,21 @@ const API = environment.api + '/workout';
 export class WorkoutsHttpService {
 	constructor(private http: HttpClient) {}
 
-	getDailyWorkouts(): Observable<any> {
+	getDailyWorkouts(): Observable<IWorkoutResponse> {
 		const getDailyWorkoutsUrl = API + '/';
 
-		return this.http.get<any>(getDailyWorkoutsUrl);
+		return this.http.get<IWorkoutResponse>(getDailyWorkoutsUrl);
 	}
 
-	getAllWorkouts(): Observable<any> {
+	getAllWorkouts(): Observable<IAllWorkoutsResponse> {
 		const getAllWorkoutsUrl = API + '/all/';
 
-		return this.http.get<any>(getAllWorkoutsUrl);
+		return this.http.get<IAllWorkoutsResponse>(getAllWorkoutsUrl);
 	}
 
-	addExercise(exercise: IExercise): Observable<any> {
+	addExercise(exercise: IExercise): Observable<IWorkoutResponse> {
 		const addExerciseUrl = API + '/';
 
-		return this.http.post<any>(addExerciseUrl, { ...exercise });
+		return this.http.post<IWorkoutResponse>(addExerciseUrl, exercise);
 	}
 }
