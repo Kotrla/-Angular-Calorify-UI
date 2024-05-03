@@ -1,5 +1,6 @@
 @import '../../../../styles/partials/card';
 @import '../../../../styles/partials/variables';
+@import '../../../../styles/partials/separator';
 
 .card {
 	&__header {
@@ -18,21 +19,40 @@
 	}
 
 	&__content {
-		padding: $gap;
 		display: flex;
-		gap: $small-gap;
-		flex-direction: column;
-		justify-content: center;
+		justify-content: space-between;
+		padding: $gap;
+		width: 100%;
+		flex-wrap: wrap;
 
-		&--item {
-			width: 300px;
+		&-column {
 			display: flex;
-			justify-content: space-between;
+			gap: $small-gap;
+			flex-direction: column;
+			justify-content: center;
 
-			&-macros {
-				width: 100px;
+			&--item {
+				width: 300px;
 				display: flex;
 				justify-content: space-between;
+
+				&-macros {
+					width: 100px;
+					display: flex;
+					justify-content: space-between;
+				}
+			}
+		}
+
+		&-row {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-wrap: wrap;
+
+			> * {
+				max-width: 160px;
+				max-height: 140px;
 			}
 		}
 	}

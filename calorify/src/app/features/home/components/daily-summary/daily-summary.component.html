@@ -5,40 +5,48 @@
 		</div>
 
 		<div class="card__content">
-			<div class="card__content--item">
-				<p>Calories:</p>
-				<div class="card__content--item-macros">
-					<p>{{ userDaily?.kcal }}</p>
-					<p>/</p>
-					<p>{{ userTargets.kcal }}</p>
+			<div class="card__content-column">
+				<div class="card__content-column--item">
+					<p>Calories:</p>
+					<div class="card__content-column--item-macros">
+						<p>{{ userDaily?.kcal }}</p>
+						<p>/</p>
+						<p>{{ userNeeds.kcal }}</p>
+					</div>
+				</div>
+
+				<div class="card__content-column--item">
+					<p>Protein:</p>
+					<div class="card__content-column--item-macros">
+						<p>{{ userDaily?.protein }} g</p>
+						<p>/</p>
+						<p>{{ userNeeds.protein }} g</p>
+					</div>
+				</div>
+
+				<div class="card__content-column--item">
+					<p>Carbs:</p>
+					<div class="card__content-column--item-macros">
+						<p>{{ userDaily?.carbs }} g</p>
+						<p>/</p>
+						<p>{{ userNeeds.carbs }} g</p>
+					</div>
+				</div>
+
+				<div class="card__content-column--item">
+					<p>Fats:</p>
+					<div class="card__content-column--item-macros">
+						<p>{{ userDaily?.fats }} g</p>
+						<p>/</p>
+						<p>{{ userNeeds.fats }} g</p>
+					</div>
 				</div>
 			</div>
 
-			<div class="card__content--item">
-				<p>Protein:</p>
-				<div class="card__content--item-macros">
-					<p>{{ userDaily?.protein }} g</p>
-					<p>/</p>
-					<p>{{ userTargets.protein }} g</p>
-				</div>
-			</div>
-
-			<div class="card__content--item">
-				<p>Carbs:</p>
-				<div class="card__content--item-macros">
-					<p>{{ userDaily?.carbs }} g</p>
-					<p>/</p>
-					<p>{{ userTargets.carbs }} g</p>
-				</div>
-			</div>
-
-			<div class="card__content--item">
-				<p>Fats:</p>
-				<div class="card__content--item-macros">
-					<p>{{ userDaily?.fats }} g</p>
-					<p>/</p>
-					<p>{{ userTargets.fats }} g</p>
-				</div>
+			<div class="card__content-row">
+				<app-chart *ngIf="dailyCaloriesChart" [chart]="dailyCaloriesChart"></app-chart>
+				<div class="separator-vertical"></div>
+				<app-chart *ngFor="let macroChart of dailyMacroCharts" [chart]="macroChart"></app-chart>
 			</div>
 		</div>
 	</div>

@@ -1,1 +1,21 @@
 @import '../daily-summary/daily-summary.component.scss';
+
+.card__content {
+	height: 300px;
+	align-items: center;
+	padding: $gap;
+
+	> * {
+		height: 90%;
+	}
+
+	&-row {
+		width: 45%;
+		> * {
+			width: 100%;
+			max-width: 100%;
+			max-height: 100%;
+			min-height: 100%;
+		}
+	}
+}
