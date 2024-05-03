@@ -29,7 +29,9 @@ export class WorkoutsEffects {
 					.getAllWorkouts()
 					.pipe(takeUntil(this.actions$.pipe(ofType(workoutsActions.cancelWorkoutsObservables))))
 			),
-			map(({ workouts }) => workoutsActions.finishLoadingAllWorkouts({ payload: { workouts } }))
+			map(({ workouts }) =>
+				workoutsActions.finishLoadingAllWorkouts({ payload: { workouts: workouts.reverse() } })
+			)
 		)
 	);
 

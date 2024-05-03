@@ -49,7 +49,7 @@ export class MealsEffects {
 					(acc, target) => ({ ...acc, [target.dateCreated]: target }),
 					{}
 				);
-				const historyMeals = this.mealsService.getAllMealsByDate(meals, targetsRecord);
+				const historyMeals = this.mealsService.getAllMealsByDate(meals, targetsRecord).reverse();
 
 				return mealsActions.finishLoadingHistoryMeals({ payload: { historyMeals } });
 			})

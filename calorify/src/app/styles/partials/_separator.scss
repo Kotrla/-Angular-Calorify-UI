@@ -1,0 +1,9 @@
+@import './variables';
+
+.separator-vertical {
+	width: 1px;
+	height: 100%;
+	background-color: $darker-gray;
+	display: inline-block;
+	margin: 0 10px;
+}
