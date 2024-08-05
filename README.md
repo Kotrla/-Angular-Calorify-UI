@@ -1,9 +1,8 @@
 # Angular Calorify Frontend
 
 Angular Calorify is a frontend web application built with Angular and TypeScript, designed to help users track their calories,
-macronutrients, and workouts. The app uses NgRx for state management and Angular Material for the user interface. It interacts with a
-backend service to provide functionalities such as user authentication, calorie and macronutrient tracking, meal tracking, and workout
-tracking.
+macronutrients, and workouts. The app uses NgRx for state management and custom styles for the user interface. It interacts with a backend
+service to provide functionalities such as user authentication, calorie and macronutrient tracking, meal tracking, and workout tracking.
 
 ## Table of Contents
 
